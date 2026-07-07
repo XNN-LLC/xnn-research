@@ -2,6 +2,11 @@
 
 Copyright (c) 2026 XNN LLC. All rights reserved.
 
+Authorship and company attribution: this repository is authored and maintained
+by Gleb Stepanov, an independent researcher and developer and founder/lead
+developer of XNN LLC, an independent research and development company based in
+Georgia, USA. See `AUTHORS.md`.
+
 1. **Quotation.** Text and tables in this repository may be quoted in scholarly
    and journalistic work with attribution ("XNN LLC research,
    github.com/XNN-LLC/xnn-research") and a link to this repository.

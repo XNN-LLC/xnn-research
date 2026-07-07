@@ -29,6 +29,14 @@ same bytes. GitHub's push records provide a third-party timestamp upper bound.
 edited. The PRELIMINARY int4-window artifact (RESULTS.md, section 6) will be
 appended once it lands on private main.
 
+**Public v0.4 note.** `POSITION_NOTE.md` is now labeled `v0.4-public` in this
+public repository because public authorship, company attribution, and
+LLM-assistance/accountability boundaries were added around the previously
+published science text. PM-23 wording below predates that wrapper; read PM-23
+as binding the private v0.3 science text and readout record, not the public
+v0.4 wrapper. The v0.4 public wrapper and companion files are public repository
+artifacts, not new private PM entries.
+
 **A verifiable detail inside this manifest:** PM-37 and PM-38 — the
 feasibility-gate evidence file and its independent solo re-run under an
 exclusive-GPU lock — carry the **same sha256**. The bit-identical-reproduction

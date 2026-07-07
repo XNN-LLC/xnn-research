@@ -1,12 +1,21 @@
 # XNN Research — causal-carrier metrology (public priority record)
 
-**Who we are.** XNN LLC is an independent research lab. Since May 2026 we have
-been building a research program — SEE — around one discipline: **causal claims
+**Who we are.** This public record is authored and maintained by Gleb Stepanov,
+an independent researcher and developer and founder/lead developer of XNN LLC,
+an independent research and development company based in Georgia, USA. Since
+May 2026 XNN LLC has been building a research program — SEE — around one
+discipline: **causal claims
 about neural systems must survive matched null controls, preregistration, and
 execution receipts, or they are not claims.** The program runs on a
 self-contained runtime with a hand-written GPU backend and zero third-party ML
 dependencies on the product path, so that every experiment's execution is an
 auditable object rather than a stack of trusted frameworks.
+
+XNN LLC is not an academic lab, and this repository does not ask readers to
+accept claims on credentials. LLM systems may assist with writing, editing, and
+code workflows, but the authority for claims here is the evidence record:
+committed artifacts, run results, timestamps, sha256 manifests, and
+reproducible records.
 
 **What this repository is.** The private research repository is not public.
 This repository is the public, self-sufficient record of the program's claims,
@@ -64,9 +73,12 @@ metrology.
 
 | File | What it is |
 | --- | --- |
-| `POSITION_NOTE.md` | Public edition of the position note (v0.3, 2026-07-07): "Weight-space carriers of the global workspace: deletion microscopy meets J-space" |
+| `AUTHORS.md` | Public authorship, company attribution, and LLM-assistance boundary |
+| `PUBLIC_UPDATE_V0_4.md` | v0.4-public update note: authorship/accountability clarification, no private disclosure |
+| `LEVEL1_ATTESTATION_GPT2_V0_4.md` | Sanitized public Level 1 model-BOM / weight-attestation companion for `openai-community/gpt2` |
+| `POSITION_NOTE.md` | Public edition of the position note (v0.4-public, 2026-07-07): "Weight-space carriers of the global workspace: deletion microscopy meets J-space" |
 | `RESULTS.md` | The numbers: dissociation dose-response, int4 fragility tier table, feasibility-gate criteria, determinism anchor, J-Lens oracle readout, preliminary int4-window result |
-| `TIMELINE.md` | Dated priority narrative from the program's first formulation (2026-05-06) to the present, every row hash-committed |
+| `TIMELINE.md` | Dated priority narrative from the program's first formulation (2026-05-06) to the present, with private-record rows hash-committed and public-only update rows labeled separately |
 | `PRIORITY_MANIFEST.md` / `priority_manifest.json` | The cryptographic prior: sha256 commitments to the private documents and artifacts behind every claim |
 | `LICENSE` / `NOTICE.md` | All rights reserved; quotation permitted with attribution; no license to methods; patent rights reserved |
 

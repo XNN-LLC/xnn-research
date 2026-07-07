@@ -1,12 +1,15 @@
 # TIMELINE — dated priority narrative of the XNN SEE research program
 
-Every row below is bound to the private repository's git history: the commit
-hash identifies the commit, and where a document is the priority object its
-content sha256 is committed in `PRIORITY_MANIFEST.md` (PM-xx). The timeline
-proves *that* a formulation, design, instrument, or verdict existed at the
-stated date. It deliberately does **not** print the founding formulations or
-any frozen constants — those are committed by hash and disclosed selectively.
-Dates are commit author dates (US Eastern) unless noted.
+Private-record rows below are bound to the private repository's git history:
+the commit hash identifies the commit, and where a document is the priority
+object its content sha256 is committed in `PRIORITY_MANIFEST.md` (PM-xx).
+Public-only repository update rows are labeled as public repo updates and are
+bound by this public repository's git history, not by new private PM entries.
+The timeline proves *that* a formulation, design, instrument, verdict, or
+public update existed at the stated date. It deliberately does **not** print
+the founding formulations or any frozen constants — those are committed by hash
+and disclosed selectively. Dates are commit author dates (US Eastern) unless
+noted.
 
 ## 2026-05 — genesis: the founding formulation and the runtime
 
@@ -55,11 +58,14 @@ Dates are commit author dates (US Eastern) unless noted.
 | --- | --- | --- | --- |
 | 2026-07-07 | **W4 fragility VERDICT:** the finest production-representative int4 tier selectively breaks bf16-correct flexible behaviors on qwen3-1.7b (9 lock-held flips across suppression / trace-gap / two-hop) while routine continuation stays 100% intact — the E1 fragile substrate is found. All raws lock-held and committed. | `859b4077` | PM-25..PM-29 |
 | 2026-07-07 | Phase-3 E3 preflight: numeric-freeze amendment A10 (a freeze-vs-source drift found and recorded), null-calibration runbook, seed-set fixture (contents private). | `23b9226d` | PM-19 |
-| 2026-07-07 | **Position note v0.2 → v0.3:** every paper/commentary quotation verified against the published sources; the note's public edition is this repository's `POSITION_NOTE.md`. | `b31121f6`, `b931ee8b` | PM-23, PM-24 |
+| 2026-07-07 | **Position note v0.2 → v0.3:** every paper/commentary quotation verified against the published sources; the v0.3 public edition was published as this repository's `POSITION_NOTE.md` before the later v0.4-public attribution wrapper. | `b31121f6`, `b931ee8b` | PM-23, PM-24 |
 | 2026-07-07 | **PRELIMINARY:** the dissociation window survives int4 deletion on the production-representative tier — real-minus-null report margin +8.07 nats (vs +9.96 on bf16) at the same L8–11 / α=0.25 configuration. Single configuration, artifact not yet on private main at manifest time; its sha256 will be appended in a dated manifest update. Treat as unconfirmed until then. | (pending) | (pending) |
+| 2026-07-07 | **Public v0.4 accountability and Level 1 attestation update:** authorship, XNN LLC attribution, Georgia/USA company context, LLM-assistance boundary, and a sanitized GPT-2 model-BOM / weight-attestation companion added to the public repository. No private documents, raw weights, local paths, command logs, or implementation internals disclosed. | public repo | `AUTHORS.md`, `PUBLIC_UPDATE_V0_4.md`, `LEVEL1_ATTESTATION_GPT2_V0_4.md` |
 | 2026-07-07 | This public priority record assembled; private repo HEAD at assembly: `b931ee8bf61a459ae0b2a7de0f9fa563289c518d`. | — | manifest header |
 
-**Reading rule.** Rows marked with manifest references are provable today:
-request the document under NDA, hash it, compare. Rows without a manifest
-reference are ordinary git history in the private repository and are provable
-by repository inspection under the same terms.
+**Reading rule.** Private rows marked with manifest references are provable
+today: request the document under NDA, hash it, compare. Private rows without a
+manifest reference are ordinary git history in the private repository and are
+provable by repository inspection under the same terms. Public-only update rows
+are public repository history; they do not disclose or imply new private PM
+entries.

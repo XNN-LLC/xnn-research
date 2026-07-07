@@ -1,8 +1,10 @@
 # Weight-space carriers of the global workspace: deletion microscopy meets J-space
 
-> **PUBLIC EDITION — v0.3-public, 2026-07-07** (private v0.1 2026-07-06; v0.2 and v0.3
+> **PUBLIC EDITION — v0.4-public, 2026-07-07** (private v0.1 2026-07-06; v0.2 and v0.3
 > 2026-07-07). This is the public edition of a position note maintained in our private
-> research repository.¹ The science text is unchanged from private v0.3. Three mechanical
+> research repository.¹ The science text is unchanged from private v0.3. v0.4-public adds
+> explicit public authorship, company attribution, and LLM-assistance/accountability
+> boundaries; it does not add private implementation details. Three mechanical
 > transformations were applied for publication: (a) internal file paths are replaced by
 > *italic descriptors* bound to entries of [`PRIORITY_MANIFEST.md`](PRIORITY_MANIFEST.md)
 > (PM-xx) — sha256 commitments that make every citation verifiable under later
@@ -36,6 +38,19 @@
 > committed in [`PRIORITY_MANIFEST.md`](PRIORITY_MANIFEST.md); access under NDA on
 > request. All commit hashes cited below refer to that repository and are bound by the
 > manifest's repo-HEAD commitment.
+
+---
+
+## Authors / Background
+
+This note is authored and maintained by Gleb Stepanov, an independent researcher
+and developer and founder/lead developer of XNN LLC, an independent research
+and development company based in Georgia, USA. XNN LLC is not an academic lab.
+
+LLM systems may assist with writing, editing, and code workflows. They are not
+the source of authority for the claims in this note. Claim authority is bounded
+to committed artifacts, run results, timestamps, sha256 manifests, and
+reproducible records referenced by the public priority manifest.
 
 ---
 
