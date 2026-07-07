@@ -1,10 +1,14 @@
 # Weight-space carriers of the global workspace: deletion microscopy meets J-space
 
-> **PUBLIC EDITION — v0.4-public, 2026-07-07** (private v0.1 2026-07-06; v0.2 and v0.3
+> **PUBLIC EDITION — v0.5-public, 2026-07-07** (private v0.1 2026-07-06; v0.2–v0.4
 > 2026-07-07). This is the public edition of a position note maintained in our private
-> research repository.¹ The science text is unchanged from private v0.3. v0.4-public adds
-> explicit public authorship, company attribution, and LLM-assistance/accountability
-> boundaries; it does not add private implementation details. Three mechanical
+> research repository.¹ Version lineage, stated exactly: the science text below is the
+> public edition of **private v0.4** (PM-43), which added the qwen3-8b scale leg (§3.2)
+> and the E1 int4-sweep status to the v0.3 science text; the earlier *v0.4-public*
+> release of this file added explicit public authorship, company attribution, and
+> LLM-assistance/accountability boundaries around the v0.3 science text (see
+> `PUBLIC_UPDATE_V0_4.md`) — those additions are preserved below; *v0.5-public* is the
+> two combined, and adds no private implementation details. Three mechanical
 > transformations were applied for publication: (a) internal file paths are replaced by
 > *italic descriptors* bound to entries of [`PRIORITY_MANIFEST.md`](PRIORITY_MANIFEST.md)
 > (PM-xx) — sha256 commitments that make every citation verifiable under later
@@ -12,15 +16,17 @@
 > printed — they are hash-committed (the verdict labels and all result numbers are
 > printed in full); (c) implementation internals (module names, GPU-implementation
 > detail, command flags, machine paths) are removed — they are bound collectively by the
-> private repo-HEAD commitment in the manifest. Beyond those transformations, two dated
-> cross-references that postdate private v0.3 were added: the E1 damage-map parenthetical
-> and the int4-fragility claim-ledger row (both pointing to RESULTS.md §2/§6). Nothing
-> else was changed.
+> private repo-HEAD commitments in the manifest, and specific hardware is genericized
+> ("a rented high-memory GPU instance"). Beyond those transformations, the earlier
+> audit-fix rebindings (the §3.1/PM-41 readout binding, the verdict-vocabulary phrasing)
+> are carried forward, and one dated cross-reference that postdates private v0.4 was
+> added: the §3.2 parenthetical pointing to the completed K=4 null ensemble and position
+> sweep (RESULTS.md §8–§9). Nothing else was changed.
 >
 > **Claim-tag legend (mandatory per our repo discipline):**
 > - **[committed]** — proven at the stated scope by code, a run artifact, or a verdict in
->   the private repository¹ at the cited commit; the underlying document/artifact content
->   is hash-committed in `PRIORITY_MANIFEST.md`.
+>   the working (private¹) repository at the cited commit; externally committed-to via
+>   the sha256 priority manifest in this repository (`PRIORITY_MANIFEST.md`).
 > - **[preregistered]** — a frozen, hash-committed design; the evaluation has NOT run.
 > - **[planned]** — a dated intention. Nothing tagged [planned] is a result.
 >
@@ -182,8 +188,9 @@ program asks the adjacent question one level down: **which stored distinctions i
 weights are causally necessary for which behaviors, in which inference states, at what
 precision?** Same object of interest — a privileged, functionally load-bearing subspace —
 different substrate: bytes on disk rather than activations in flight. Everything below
-is committed in our research repository¹ with commits, and hash-bound in
-`PRIORITY_MANIFEST.md`.
+is committed in the working (private¹) repository with commit hashes; this repository
+carries the sha256 priority manifest (`PRIORITY_MANIFEST.md`), the genesis timeline
+(`TIMELINE.md`), and this public edition.
 
 ### 2.1 State-dependent necessity, formalized (June 2026) **[committed `5223bc69`, refined `74c056ba`; PM-16]**
 
@@ -373,6 +380,48 @@ itself contain the readout table; the bit-exact final-layer anchor is independen
 recomputable by any holder of the sha-pinned pack plus the sha-pinned model files. This
 gives E1 both lenses: the cheap forward-only mapper (§3) and an exact-comparability
 J-Lens pack.
+
+### 3.2 Scale: the window migrates, the null floor drops (qwen3-8b, 2026-07-07) **[committed `74751075`; artifacts: the qwen3-8b 9-cell grid, PM-47..PM-56 — run on a rented high-memory GPU instance, cuda fp32]**
+
+One day after the 1.7B result, the same instrument, pack-extraction recipe, and
+pre-registered verdict rule ran unchanged on qwen3-8b (36 layers, d_model 4096 — 2x the
+1.7B width). Three findings, each read directly from the committed per-band verdicts:
+
+1. **The dissociation exists at both scales — and is *broader* at 8B.** At the 1.7B
+   headline configuration (whole-context, α=0.25), 8B passes the gate in **five
+   contiguous bands** (L4-7 through L20-23: real +1.43 to +6.71 nats vs null −0.07 to
+   +1.16, continuation intact in every one), where 1.7B had exactly one passing band
+   (L8-11). Late bands (L24+) joint-flip at this dose, honestly labeled.
+2. **The window's geometry migrates.** The report-time-only protocol (positions=last) —
+   which at 1.7B *never* beat its null at any dose (§3, the confound the gate caught) —
+   **passes at 8B**: at α=1.0, L4-7 / L8-11 / L16-19 dissociate (real +1.52 / +1.92 /
+   +2.11 vs null +0.75 / +0.06 / +0.30); at α=2.0, L0-3 / L4-7. The gate keeps biting at
+   8B too: L12-15 at last/α=1.0 is `null_confounded`, and late bands at high dose end in
+   `degenerate_continuation` — reported as such, not as steering. The best-dissociation
+   cells also sit deeper in the network (depth-fraction ~0.5–0.6 at 8B vs 0.34 at 1.7B;
+   *the feature-resolution scaling note* **[committed `9ac04db4`; PM-45]**).
+3. **The one matching-free scale signal: the null floor drops faster than geometry.** At
+   the matched dose with full multi-band coverage at both scales (α=1.0, whole-context),
+   the median norm-matched-null report shift falls from **4.58 to 1.18 nats (÷3.9)**
+   while the real shift stays the same order — against a pure random-superposition
+   (sqrt-d) prediction of ÷1.41 for this width change. Even deep in the steering regime
+   the 8B null stays quiet (mid-band L23-26 at α=0.5: real +22.63 vs null +0.19 — a
+   `joint_flip`, cited only as null-floor evidence, not as a dissociation). We
+   deliberately quote **no scaling exponent**: the companion analysis note shows the
+   implied exponent is matching-choice-dependent — its *sign flips* between defensible
+   band matchings — so the absolute null-floor drop is the only reading we consider
+   robust, and even it carries a stated caveat (absolute nats are not strictly
+   comparable across d_model without an activation-norm normalizer; two scale points fix
+   a line, not a law).
+
+Instrumentation for turning these single points into distributions is in place: a
+K-null ensemble mode (error bars on every null floor) and a single-position probe mode
+of the mapper **[committed `b3a6882e`]**; the first ensembles are in flight
+**[planned]**. *(Completed since private v0.4 and recorded in this repository's results
+ledger: the K=4 null ensemble on the flagship 1.7B cell and the 20-cell single-position
+sweep — RESULTS.md §8–§9, PM-60..PM-67.)* Scope: same single concept pair and report
+question as §3, two scale points, one architecture family — an existence-and-geometry
+result, not a law.
 
 ---
 
@@ -564,13 +613,22 @@ workspace-carrier response plan* **[committed `042c4eee`; PM-22]**.
   mode, α=0.25, whole-context, ≥24 continuation tokens) **[committed `c80c6425`]**, a
   flexible-vs-routine behavioral gate suite (workspace-gates
   **[committed `69bfeb0b`]**), and an exact J-Lens oracle pack for comparability
-  (§3.1 **[committed `3503a160`; PM-41]**). Next: int4 tier sweeps over those gates and
+  (§3.1 **[committed `3503a160`; PM-41]**). The int4 tier sweep has now also landed: on
+  qwen3-1.7b, the finest production-representative int4 tier (grouping parameters
+  hash-committed) **selectively breaks flexible tasks** — 9 bf16-correct flexible
+  behaviors flip (suppression 4/6, trace-gap 4/5, two-hop 1/5) while routine stays 8/8;
+  coarser tiers damage non-selectively, and per-item damage is non-monotone across tiers
+  (different deletion maps, not nested) **[committed `859b4077`; PM-25..PM-29]** —
+  exactly the fragile substrate the bridge needs. What remains IN FLIGHT:
   band-restricted residual reinjection, real vs shuffle-null, with silicon-diff
-  localization and a proof-pack verdict — is the workspace band what int4 deletes first?
-  Either outcome is a result: fragile-and-localized (first weight-space localization of a
-  workspace) or robust (a null-gated "workspace function survives int4 at 1–2B scale").
-  *(The int4 damage-map half landed 2026-07-07 — see RESULTS.md §2; and a PRELIMINARY
-  int4-window readout is recorded in RESULTS.md §6.)*
+  localization and a proof-pack verdict (Stage C). A first reading exists but is
+  **PRELIMINARY** and we flag it exactly as the results ledger does: the dissociation
+  configuration still separates from its null on the int4 tier (real-minus-null +8.07
+  nats vs +9.96 on bf16) — "single configuration, single model, artifact not yet merged
+  to private main at manifest time … Do not cite as a confirmed result" (RESULTS.md §6).
+  Either final outcome is a result: fragile-and-localized (first weight-space
+  localization of a workspace) or robust (a null-gated "workspace function survives
+  int4 at 1–2B scale").
 - **E2 — Does a workspace exist without attention?** The same forward-only mapper across
   non-transformer recurrences on the same runtime. The substrate is unusual and already
   exists: our decoder runs 17+ architecture families through one loop
@@ -616,6 +674,13 @@ measure, anything about experience. Further honest boundaries, explicitly:
 - **Phase 3 has not run its confirmatory evaluation.** Feasibility PASSED (§5); sign-off,
   null-calibration, and two freeze-vs-source reconciliations remain; `SUPPORTED` is one
   of a fail-closed verdict vocabulary.
+- **The scale result (§3.2) is two points, not a law.** Same single concept pair and
+  report question at both scales; the window migration is a descriptive geometry
+  observation; the feature-resolution exponent is matching-choice-dependent (its sign
+  flips between defensible matchings), which is why we quote only the absolute
+  null-floor drop, itself pending the activation-norm normalizer and K-null ensembles.
+  The int4-window +8.07 reading is PRELIMINARY (Stage-C artifact not yet on main) and is
+  not citable as a confirmed result.
 - **Scale risk.** The paper's phenomenology is frontier-scale ("By default, we report
   results on Claude Sonnet 4.5, but we corroborate key results on Haiku 4.5 and Opus 4.5
   as well" — paper); the 27B replication already required care. Our substrates are
@@ -648,6 +713,12 @@ measure, anything about experience. Further honest boundaries, explicitly:
 | Workspace dissociation on qwen3-1.7b: report +11.03 nats real vs +1.06 null (10.4x), continuation intact both arms | committed | `c80c6425`; PM-30 |
 | Report-time-only injection is null-confounded at every dose (the un-nulled false positive) | committed | PM-32..PM-35 |
 | Dose window closes into joint steering at α≥0.5 (report + continuation flip together) | committed | PM-31, PM-36 |
+| qwen3-8b 9-cell grid: dissociation at both scales — 5 contiguous passing bands at all/α0.25; the last-position protocol (null-confounded at 1.7B) passes at α1.0–2.0; late bands degenerate, labeled | committed | `74751075`; PM-47..PM-56 |
+| Null floor drops ÷3.9 (median \|Δreport_null\|, α1.0/all, 1.7B→8B) vs geometric ÷1.41; implied exponent is matching-dependent (sign flips) — only the absolute drop is quoted, with normalizer caveat | committed (analysis over committed artifacts) | `9ac04db4`; PM-45, PM-46 |
+| K-null ensemble mode + single-position probe mode of the mapper | committed (instrument; flagship K=4 ensemble and position sweep since completed — RESULTS.md §8–§9) | `b3a6882e`; PM-60..PM-67 |
+| Finest production-representative int4 tier selectively breaks flexible tasks on qwen3-1.7b (9 bf16-correct flips; routine 8/8); tiers are non-nested deletion maps | committed | `859b4077`; PM-25..PM-29 |
+| This public prior repository: public note edition, RESULTS.md, TIMELINE.md, sha256 priority manifest (adversarial IP audit; PM-01..42 + Update 2026-07-07 (2), PM-43..67) | committed (this repository; verified live 2026-07-07) | this repository |
+| E1 Stage-C band-restricted reinjection; int4-window real-minus-null +8.07 nats | IN FLIGHT — PRELIMINARY; artifact not on main; "do not cite as a confirmed result" | RESULTS.md §6 |
 | Flexible-vs-routine behavioral gate suite (workspace-gates) | committed | `69bfeb0b` |
 | J-Lens oracle extractor + qwen3-1.7b proof pack: France@L19 / Paris@L21+ while actual next token is " the"; final-layer rows bit-exact vs tied unembedding (max diff 0.0) | committed | `3503a160`; PM-41 (extraction provenance), PM-23 (readout record); anchor recomputable from the sha-pinned pack + model files |
 | CUDA greedy decode bitwise-deterministic across 3 runs (top-8 logit stream fnv1a64 `445f710a693a80c9`) | committed | `76ff3b6e`, `c74ccfea`; PM-42 |
@@ -658,7 +729,7 @@ measure, anything about experience. Further honest boundaries, explicitly:
 | OLMoE router instrumentation; route agreement 3–19x above chance | committed | repo-HEAD-bound (recorded 2026-06-09) |
 | No finite-value clamps in the math chain (guarded by regression tests on both GPU runtimes) | committed | `98eca5c6`, `b35aa7ce`, `1370fcbd` |
 | Int4 fragility damage map: finest tier selectively breaks flexible behaviors (9 flips), routine intact | committed | `859b4077`; PM-25..PM-29 (see RESULTS.md §2) |
-| E1 remaining half (band-restricted reinjection), E2, E3 evaluation, E4 remaining claims | planned | PM-22 |
+| E1 Stage-C verdict, K-null ensembles at 8B, third scale point, E2, E3 evaluation, E4 remaining claims | planned | PM-22 |
 | Workspace-band × residual-carrier bridge verdict | none — not run | — |
 
 ---
@@ -674,19 +745,26 @@ measure, anything about experience. Further honest boundaries, explicitly:
   anchored by author and quoted text; verified against the full extracted PDF text
   2026-07-07:
   https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf
-- Our research repository: https://github.com/XNN-LLC/xnn-see-research — **private**;¹
-  every document and artifact cited above is hash-committed in
-  [`PRIORITY_MANIFEST.md`](PRIORITY_MANIFEST.md):
+- **This repository is the public prior record (cite this externally):**
+  https://github.com/XNN-LLC/xnn-research — this public note edition, the results
+  ledger ([`RESULTS.md`](RESULTS.md)), the genesis timeline
+  ([`TIMELINE.md`](TIMELINE.md)), and the sha256 priority manifest
+  ([`PRIORITY_MANIFEST.md`](PRIORITY_MANIFEST.md) / `priority_manifest.json`;
+  PM-01..PM-42 + Update 2026-07-07 (2), PM-43..PM-67). Published 2026-07-07 after an
+  adversarial IP audit.
+- Working repository: github.com/XNN-LLC/xnn-see-research — **private**;¹ every
+  document and artifact cited above is hash-committed in the manifest:
   - Theory: *carrier-mapping theory document* (PM-16)
   - Frozen design: *Phase-3 preregistration* (PM-17), *numeric freeze* (PM-18),
     *amendment A10* (PM-19)
   - Instrument line + negatives: *microscopy program note* (PM-20)
-  - First results (this note §3, §5): *dose-response artifacts* (PM-30..PM-36),
-    *J-Lens proof pack* (PM-41), *feasibility evidence* (PM-37..PM-40),
-    *integration gate* (PM-42)
+  - First results (this note §3, §3.2, §5): *dose-response artifacts* (PM-30..PM-36),
+    *the qwen3-8b grid* (PM-47..PM-56), *J-Lens proof packs* (PM-41, PM-57),
+    *feasibility evidence* (PM-37..PM-40), *integration gate* (PM-42),
+    *null-ensemble and position-sweep artifacts* (PM-60..PM-67)
+  - Scale analysis: *feature-resolution scaling note* (PM-45, PM-46)
+  - Position note v0.4 (the private original of this edition): PM-43
   - Response plan (E1–E4): PM-22
-- The numbers, tabulated with dates and hashes: [`RESULTS.md`](RESULTS.md). The dated
-  narrative back to the program's first formulation: [`TIMELINE.md`](TIMELINE.md).
 
 *Contact: open an issue on this repository. This note is a public edition of a working
 draft; corrections that make any claim here smaller and truer are the most useful kind.*

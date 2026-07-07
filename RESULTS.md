@@ -43,6 +43,8 @@ language in both arms; (3) at α≥0.5 the window closes into honest joint
 steering, labeled as such. Scope: one model, one concept pair, one report
 question with single-token answer sets, lexical-marker continuation proxy —
 existence-level, with all raw token streams committed for external re-scoring.
+*(2026-07-07 update: the flagship α=0.25 cell is now gated by a K=4 null
+ensemble — §8 — and position-resolved to a single consolidation site — §9.)*
 
 ---
 
@@ -170,9 +172,94 @@ to private main at manifest time; its sha256 will be appended to
 
 ---
 
+## 7. Scale: qwen3-8b 9-cell grid — the window migrates, the null floor drops
+
+**Date 2026-07-07 · private commit `74751075` · manifest PM-47..PM-56 (grid + pack),
+PM-45/PM-46 (analysis) · run on a rented high-memory GPU instance, cuda fp32.**
+The same instrument, pack-extraction recipe, and pre-registered verdict rule ran
+unchanged on qwen3-8b (36 layers, d_model 4096 — 2x the 1.7B width). Read
+directly from the committed per-band verdicts:
+
+- **Dissociation at both scales — broader at 8B.** At the 1.7B headline
+  configuration (whole-context, α=0.25), 8B passes the gate in **five
+  contiguous bands** (L4-7 through L20-23: real +1.43 to +6.71 nats vs null
+  −0.07 to +1.16; continuation intact in every one), where 1.7B had exactly one
+  passing band (L8–11). Late bands (L24+) joint-flip at this dose, labeled.
+- **The geometry migrates.** The report-time-only protocol (positions=last) —
+  null-confounded at every dose at 1.7B (§1) — **passes at 8B**: α=1.0 gives
+  three dissociating bands (L4-7 / L8-11 / L16-19: real +1.52 / +1.92 / +2.11
+  vs null +0.75 / +0.06 / +0.30); α=2.0 gives L0-3 / L4-7. The gate still
+  bites at 8B: L12-15 at last/α=1.0 is `null_confounded`; late bands at high
+  dose end in `degenerate_continuation` — reported as such, not as steering.
+  Best-dissociation cells sit deeper (depth-fraction ~0.5–0.6 vs 0.34 at 1.7B).
+- **The one matching-free scale signal: the null floor.** At the matched dose
+  with full multi-band coverage at both scales (α=1.0, whole-context), the
+  median norm-matched-null report shift falls from **4.58 to 1.18 nats (÷3.9)**
+  against a pure random-superposition (sqrt-d) prediction of ÷1.41 for this
+  width change; even deep in the steering regime the 8B null stays quiet
+  (L23-26 mid-band at α=0.5: real +22.63 vs null +0.19 — `joint_flip`, cited
+  only as null-floor evidence). **No scaling exponent is quoted**: the
+  hash-committed analysis note (PM-45) shows the implied exponent is
+  band-matching-dependent — its sign flips between defensible matchings — so
+  only the absolute drop is quoted, and even it carries stated caveats
+  (absolute nats are not strictly comparable across d_model without an
+  activation-norm normalizer; two scale points fix a line, not a law; same
+  single concept pair and report question at both scales).
+
+---
+
+## 8. K=4 null ensemble on the flagship cell — now ensemble-gated
+
+**Date 2026-07-07 · private commit `27ceabcb` · manifest PM-60..PM-64.**
+The §1 flagship cell (qwen3-1.7b, L8–11, α=0.25, whole-context) re-run against
+**four independent norm-matched shuffle-nulls**, with the real arm re-executed
+in every run:
+
+| arm | report shift (nats) | verdict |
+| --- | --- | --- |
+| real (x4 re-runs) | **+11.0251 — bit-identical across all four** | — |
+| null, index 0 (the original) | +1.0644 | workspace_dissociation |
+| null, index 1 | +0.2319 | workspace_dissociation |
+| null, index 2 | −1.0068 | workspace_dissociation |
+| null, index 3 | −0.6091 | workspace_dissociation |
+
+Null ensemble mean −0.0799; max |null| = 1.0644 — the original single null
+(§1) turns out to have been the *most adversarial* of the four, so the
+published +9.96 margin was the conservative one. All four verdicts pass
+independently; the real arm's bit-identity across re-runs doubles as an
+in-experiment determinism cross-check. The flagship dissociation is no longer
+a single-null result.
+
+---
+
+## 9. Position-resolved probe: a single consolidation site at K=24
+
+**Date 2026-07-07 · private commits `4f4cf3ff` (driver + first cells),
+`7c27f1db` (complete) · manifest PM-65..PM-67.**
+Injection restricted to a **single context position K** (band L8–11,
+qwen3-1.7b; 10 positions x 2 doses = 20 cells, one null index). Result: every
+position reads at noise **except K=24**, which passes the dissociation gate at
+both doses:
+
+| cell | report shift, real (nats) | report shift, null (nats) | verdict |
+| --- | --- | --- | --- |
+| K=24, α=0.25 | **+0.573** | −0.006 | workspace_dissociation |
+| K=24, α=1.0 | **+1.519** | +0.025 | workspace_dissociation |
+| all other K ∈ {0,4,8,12,16,20,28,31,34}, both doses | ≤ +0.320 (largest: K=12, α=1.0) | ~0 | no_report_flip |
+
+Early-context cells (K=0/4/8) move the report by ≤0.05 nats at α=0.25 — about
+0.4% of the whole-context effect. The K=24 site accounts for ~5% of the
+whole-context +11.03 at the same dose: the whole-context dissociation is not
+the sum of one position, but exactly one compact consolidation site clears the
+gate on its own. Continuation stays in the source language in every cell.
+Scope: one band, one concept pair, one null index per cell (the K=4 ensemble
+of §8 gates the whole-context flagship, not each position cell); single model.
+
+---
+
 ## Cross-references
 
 - Method context and claim boundaries: `POSITION_NOTE.md`
 - Dated narrative: `TIMELINE.md`
 - Hash bindings for every artifact above: `PRIORITY_MANIFEST.md` /
-  `priority_manifest.json`
+  `priority_manifest.json` (PM-01..42 + Update 2026-07-07 (2): PM-43..67)

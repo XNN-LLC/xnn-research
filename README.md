@@ -63,11 +63,13 @@ bit-identically reproduced. See `POSITION_NOTE.md` and `RESULTS.md`.
 We publish negatives with the same machinery as positives. The program's
 current honest score, stated plainly: weight-space carriers found so far:
 **zero** (a paid, full-instrument negative on gemma-4-E2B OCR is part of the
-record); activation-space dissociations found: **one**, null-gated,
-existence-level; two earlier program phases were closed as a **terminal
-negative** and a **STOP-UNDERPOWERED** — both written up and hash-committed. A
-methodology whose controls have never rejected anything is advertising, not
-metrology.
+record); activation-space dissociations found: **one** — now gated by a K=4
+null ensemble (all four independent nulls pass), position-resolved to a single
+consolidation site, and reproduced in broader form at a second scale
+(qwen3-8b), still existence-level and labeled as such (`RESULTS.md` §7–§9);
+two earlier program phases were closed as a **terminal negative** and a
+**STOP-UNDERPOWERED** — both written up and hash-committed. A methodology
+whose controls have never rejected anything is advertising, not metrology.
 
 ## Files
 
@@ -76,8 +78,8 @@ metrology.
 | `AUTHORS.md` | Public authorship, company attribution, and LLM-assistance boundary |
 | `PUBLIC_UPDATE_V0_4.md` | v0.4-public update note: authorship/accountability clarification, no private disclosure |
 | `LEVEL1_ATTESTATION_GPT2_V0_4.md` | Sanitized public Level 1 model-BOM / weight-attestation companion for `openai-community/gpt2` |
-| `POSITION_NOTE.md` | Public edition of the position note (v0.4-public, 2026-07-07): "Weight-space carriers of the global workspace: deletion microscopy meets J-space" |
-| `RESULTS.md` | The numbers: dissociation dose-response, int4 fragility tier table, feasibility-gate criteria, determinism anchor, J-Lens oracle readout, preliminary int4-window result |
+| `POSITION_NOTE.md` | Public edition of the position note (v0.5-public, 2026-07-07 — science text of private v0.4 + the v0.4-public attribution additions): "Weight-space carriers of the global workspace: deletion microscopy meets J-space" |
+| `RESULTS.md` | The numbers: dissociation dose-response, int4 fragility tier table, feasibility-gate criteria, determinism anchor, J-Lens oracle readout, preliminary int4-window result, qwen3-8b scale grid, K=4 null ensemble, position-resolved consolidation site |
 | `TIMELINE.md` | Dated priority narrative from the program's first formulation (2026-05-06) to the present, with private-record rows hash-committed and public-only update rows labeled separately |
 | `PRIORITY_MANIFEST.md` / `priority_manifest.json` | The cryptographic prior: sha256 commitments to the private documents and artifacts behind every claim |
 | `LICENSE` / `NOTICE.md` | All rights reserved; quotation permitted with attribution; no license to methods; patent rights reserved |

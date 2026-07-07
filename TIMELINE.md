@@ -63,6 +63,20 @@ noted.
 | 2026-07-07 | **Public v0.4 accountability and Level 1 attestation update:** authorship, XNN LLC attribution, Georgia/USA company context, LLM-assistance boundary, and a sanitized GPT-2 model-BOM / weight-attestation companion added to the public repository. No private documents, raw weights, local paths, command logs, or implementation internals disclosed. | public repo | `AUTHORS.md`, `PUBLIC_UPDATE_V0_4.md`, `LEVEL1_ATTESTATION_GPT2_V0_4.md` |
 | 2026-07-07 | This public priority record assembled; private repo HEAD at assembly: `b931ee8bf61a459ae0b2a7de0f9fa563289c518d`. | — | manifest header |
 
+## 2026-07-07 — second wave: scale, ensembles, position resolution
+
+| Date | Event | Private commit | Manifest |
+| --- | --- | --- | --- |
+| 2026-07-07 | **Scale leg (qwen3-8b), run on a rented high-memory GPU instance:** the same instrument and pre-registered verdict rule unchanged at 2x width — dissociation at both scales with five contiguous passing bands at whole-context α=0.25; the report-time-only protocol (null-confounded at 1.7B) passes at 8B; late bands degenerate, labeled; median null floor drops ÷3.9 vs a geometric prediction of ÷1.41. Full-scale J-Lens direction manifest (qwen3-1.7b, all layers) committed alongside. | `74751075` | PM-47..PM-59 |
+| 2026-07-07 | **Feature-resolution scaling analysis with the honest matching caveat:** the implied scaling exponent is band-matching-dependent — its sign flips between defensible matchings — so no exponent is quoted; only the absolute null-floor drop is, with the activation-norm-normalizer caveat stated. | `9ac04db4` | PM-45, PM-46 |
+| 2026-07-07 | Instrument upgrades: K-null ensemble mode (error bars on every null floor) and single-position probe mode of the workspace mapper. | `b3a6882e` | — (repo-HEAD-bound) |
+| 2026-07-07 | **K=4 null ensemble on the flagship 1.7B cell:** real +11.0251 nats reproduced bit-identically across all four re-runs; four independent norm-matched nulls (+1.0644 / +0.2319 / −1.0068 / −0.6091, mean −0.0799); all four verdicts pass — the flagship dissociation is now ensemble-gated, and the original single null was the most adversarial of the four. | `27ceabcb` | PM-60..PM-64 |
+| 2026-07-07 | Position-sweep driver + first partial single-position cells. | `4f4cf3ff` | (covered by PM-65) |
+| 2026-07-07 | **Position sweep complete — a single consolidation site:** across 20 single-position cells (10 positions x 2 doses, band L8–11), exactly one position (K=24) passes the dissociation gate at both doses (α=0.25: real +0.573 vs null −0.006; α=1.0: real +1.519 vs null +0.025); every other position reads at noise; continuation intact throughout. | `7c27f1db` | PM-65..PM-67 |
+| 2026-07-07 | **Position note v0.4** (private): adds the qwen3-8b scale-leg section and the E1 int4-sweep status; the v0.5-public edition in this repository mirrors it. PM-43 supersedes PM-23 as the current note binding going forward. | `66d6eb2d` | PM-43, PM-44 |
+| 2026-07-07 | Stack ground-truth and repository-index documents refreshed to record the 2026-07-06/07 response wave (living documents, repo-HEAD-bound). | `b07548cf` | — |
+| 2026-07-07 | Manifest **Update 2026-07-07 (2)** assembled (PM-43..PM-67, append-only); second private repo-HEAD binding: `7c27f1db2ae3532749cdf71b4154b399640095ce`. | — | manifest Update (2) |
+
 **Reading rule.** Private rows marked with manifest references are provable
 today: request the document under NDA, hash it, compare. Private rows without a
 manifest reference are ordinary git history in the private repository and are

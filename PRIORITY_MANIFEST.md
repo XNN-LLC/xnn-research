@@ -90,3 +90,50 @@ claim is thus checkable in public, today, without any disclosure.
 | PM-42 | 2026-07-06 | `c74ccfea` | `db48627e945bd0fcd71245fb71f30c92c3930c43f5f752637b7ee3f27de48be4` | Wave-0 integration gate transcript: release build + anchor smoke + 3-run CUDA decode bitwise-determinism GREEN (per-step top-8 logit stream fnv1a64 445f710a693a80c9). |
 
 Machine-readable mirror: [`priority_manifest.json`](priority_manifest.json).
+
+---
+
+## Update 2026-07-07 (2) — appended entries PM-43..PM-67 + second repo-HEAD binding
+
+**Appended 2026-07-07T10:13:56Z (UTC).** Same issuer, same hash rule, same verification protocol
+as the header above; nothing above this line was edited. **Second private
+repo-HEAD binding:** `7c27f1db2ae3532749cdf71b4154b399640095ce`
+(2026-07-07T06:04:50-04:00) — binds every private document and artifact as of
+that commit, including all entries below. **Note on PM-23/PM-43:** PM-43 binds
+the private position note v0.4 (which adds the qwen3-8b scale-leg section) and
+supersedes PM-23 as the current note binding going forward; PM-23 remains the
+valid binding for the v0.3 text. The int4-window PRELIMINARY artifact
+(RESULTS.md §6) is still not on private main and remains pending a future
+dated update.
+
+| id | date | private commit | sha256 | description |
+| --- | --- | --- | --- | --- |
+| PM-43 | 2026-07-07 | `66d6eb2d` | `1c2bd60cef871ec0e19b36001e1a7be9e5e073df22e515593934f8b691be1972` | Position note v0.4 (private): adds the qwen3-8b scale-leg section and the E1 int4-sweep status to the v0.3 science text; the public v0.5 edition in this repository mirrors it. Supersedes PM-23 as the current note binding going forward. |
+| PM-44 | 2026-07-07 | `66d6eb2d` | `9d4f43cc422a20d77aa1fd4379b47e15da3ef0910a393aa719ed9098556f0491` | Companion abstract of the position note, v0.4 revision (draft, not posted). |
+| PM-45 | 2026-07-07 | `9ac04db4` | `9304fed2af0b23edc63c605ee7e34332e22b285e9d3bb94faf47a8eeb479dbb4` | Feature-resolution scaling note: two-point (1.7B to 8B) null-coupling analysis showing the implied scaling exponent is band-matching-dependent (its sign flips between defensible matchings) - the basis for quoting only the absolute null-floor drop, with the activation-norm-normalizer caveat. |
+| PM-46 | 2026-07-07 | `9ac04db4` | `a801399f8f9b5c2b77b3a846ca5a5d45f4d5d7cb73f32b8f1609a1fc0dc56b82` | Scaling-analysis data pack behind PM-45 (per-band real/null report shifts at both scales; content private). |
+| PM-47 | 2026-07-07 | `74751075` | `c74496dffad5617c7abccd9ac01a100921c65fcf84e4c314b08990fbbabce025` | qwen3-8b workspace-map sweep artifact: whole-context, alpha 0.25 - five contiguous dissociation bands (L4-7 through L20-23; real +1.43 to +6.71 nats vs null -0.07 to +1.16), continuation intact in each; late bands joint-flip, labeled. |
+| PM-48 | 2026-07-07 | `74751075` | `8403a843b220dbca59eb89a39f081408d9444a37b41e0e4bd3e43f96774dac59` | qwen3-8b workspace-map sweep artifact: whole-context, alpha 0.5. |
+| PM-49 | 2026-07-07 | `74751075` | `e7f0020266e8a747521d4ad57048533a8ae9d036f84156f16bd8e281126f9749` | qwen3-8b workspace-map sweep artifact: whole-context, alpha 1.0 (the matched-dose cell for the cross-scale null-floor comparison: median null shift 1.18 nats vs 4.58 at 1.7B). |
+| PM-50 | 2026-07-07 | `74751075` | `8b516f879078944c0bf32532ab797a4a2f60940fe515982e9d9c812d339c6291` | qwen3-8b workspace-map sweep artifact: report-time-only (last position), alpha 0.5. |
+| PM-51 | 2026-07-07 | `74751075` | `9171244468949944de28a972cf148278920e73ca7722b4aa42e7da646841a5c0` | qwen3-8b workspace-map sweep artifact: report-time-only, alpha 1.0 - three dissociating bands (L4-7 / L8-11 / L16-19: real +1.52 / +1.92 / +2.11 vs null +0.75 / +0.06 / +0.30); one band null-confounded, labeled. |
+| PM-52 | 2026-07-07 | `74751075` | `8e2333c1792439b58327a8b0e777544e318defb5ba4393a5158c6586958ec0a1` | qwen3-8b workspace-map sweep artifact: report-time-only, alpha 2.0 - early bands dissociate (L0-3 / L4-7); late bands degenerate, labeled as such. |
+| PM-53 | 2026-07-07 | `74751075` | `91abffc0cdf7bfac0b8a0d59cce387b4d5b9d930b246695923a85933aee57612` | qwen3-8b workspace-map mid-band focus artifact: whole-context, alpha 0.5 (includes the null-floor evidence cell L23-26: real +22.63 vs null +0.19, verdict joint_flip - cited only as null-floor evidence). |
+| PM-54 | 2026-07-07 | `74751075` | `73629edd6d7d7ec5590864b44e2a5cb73242d8684e3289193b31c91655ec4f94` | qwen3-8b workspace-map mid-band focus artifact: report-time-only, alpha 1.0. |
+| PM-55 | 2026-07-07 | `74751075` | `5f0b61998672fbd00445c5b89eef6ba6c634143ea1ac06ae9d80b27c22589f54` | qwen3-8b workspace-map mid-band focus artifact: report-time-only, alpha 2.0. |
+| PM-56 | 2026-07-07 | `74751075` | `90fc0dc3c35f3118b3da85535f25126762a07f2e32d84caec875bf57f3e16985` | qwen3-8b concept-vector pack (Spanish/French contrast; extraction recipe identical to the 1.7B pack; content private). |
+| PM-57 | 2026-07-07 | `74751075` | `c2b6e605b99577d3f02ceca62cb6d39fd471c23275debfff01acdb16b8815d8c` | Full-scale J-Lens direction-pack manifest (qwen3-1.7b, all layers): extraction provenance, per-model-file sha256, pack sha256. |
+| PM-58 | 2026-07-07 | `74751075` | `7fd8c858dcebc16372e61ddcfa4e779edb0f321da24fcd62c64b67ad062537c1` | Weights-revision receipt for the qwen3-8b leg (upstream revision pin; hash-only entry). *(hash-only)* |
+| PM-59 | 2026-07-07 | `74751075` | `3c8460bbc6b2f343923787a32ead8baefa38f6f99b8a8575adecaffdb9b10a95` | Oracle-environment receipt for the qwen3-8b leg (framework versions; hash-only entry). *(hash-only)* |
+| PM-60 | 2026-07-07 | `27ceabcb` | `7f55150ffed1bf108ad3796fae0235ac781eb745b6d8b7e5dbe47164d323a23b` | K=4 null-ensemble summary for the flagship 1.7B cell (L8-11, alpha 0.25, whole-context): real +11.0251 nats bit-identical across all four re-runs; four independent norm-matched shuffle-nulls +1.0644 / +0.2319 / -1.0068 / -0.6091 (mean -0.0799); all four verdicts workspace_dissociation. |
+| PM-61 | 2026-07-07 | `27ceabcb` | `779de4188bd87e1c82f6869c2a09c67f78c1bead71e5b5e1902a3584da1a867c` | Ensemble member artifact: null index 0 (the original single-null configuration). |
+| PM-62 | 2026-07-07 | `27ceabcb` | `e882e102855f3ade575e24b9278a21904df21171160b8151cb3ca58b9ea6cdfb` | Ensemble member artifact: null index 1. |
+| PM-63 | 2026-07-07 | `27ceabcb` | `63757e71570dd5fff49b66f59159a7ee380d87b6c1519846e590f7135c2fb333` | Ensemble member artifact: null index 2. |
+| PM-64 | 2026-07-07 | `27ceabcb` | `52be7eb31df97c5e867f786ca86c3047261ee20275afcbf97255df2b965fe4e0` | Ensemble member artifact: null index 3. |
+| PM-65 | 2026-07-07 | `7c27f1db` | `e455b861229e2ab582e5986b7df408f4e78e1c88b239509f36fd42623b5c28ef` | Position-sweep summary (20 cells: 10 single injection positions x 2 doses, band L8-11, qwen3-1.7b): a single consolidation site at position K=24 passes the dissociation gate at both doses; every other position reads at noise; continuation intact throughout. |
+| PM-66 | 2026-07-07 | `7c27f1db` | `f8b7dba7cb45d1b686ad4c6f9bfe809f2c4b038cd4c6fb5b6875794c670965e7` | Position-sweep cell artifact: K=24, alpha 0.25 - real +0.5734 nats vs null -0.0055, verdict workspace_dissociation. |
+| PM-67 | 2026-07-07 | `7c27f1db` | `002851ea677740d46687226a2e9f8dde8bfebf7f5184890d9505ddd40bf4b33a` | Position-sweep cell artifact: K=24, alpha 1.0 - real +1.5190 nats vs null +0.0250, verdict workspace_dissociation. |
+
+Machine-readable mirror of this update: the `updates` block and the tagged
+entries (`"update": "2026-07-07-2"`) in
+[`priority_manifest.json`](priority_manifest.json).
