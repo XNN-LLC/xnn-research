@@ -1,0 +1,323 @@
+{
+  "schema": "xnn-priority-manifest-v1",
+  "generated_utc": "2026-07-07T07:21:41Z",
+  "issuer": "XNN LLC",
+  "private_repository": {
+    "name": "github.com/XNN-LLC/xnn-see-research (private)",
+    "head_commit": "b931ee8bf61a459ae0b2a7de0f9fa563289c518d",
+    "head_commit_date": "2026-07-07T01:32:11-04:00",
+    "access": "selective disclosure: collaboration / NDA / publication"
+  },
+  "hash_rule": "sha256 over the exact file bytes as stored in the private repository at the stated commit (git blob content). Where a note says 'hashed at repo HEAD', the stated commit is the repository HEAD above and the date column records the document's origin date.",
+  "claim": "These hashes commit XNN LLC to the content of the referenced documents and run artifacts as of the stated dates. The full documents are disclosed selectively (collaboration, NDA, publication); any disclosed copy can be verified byte-for-byte against this manifest. Hash commitments are commitments to content, not disclosures of it.",
+  "update_policy": "Append-only. New entries land in dated updates; existing entries are never edited. The PRELIMINARY int4-window artifact (RESULTS.md section 6) will be appended once merged to private main.",
+  "entries": [
+    {
+      "id": "PM-01",
+      "date": "2026-05-06",
+      "private_commit": "80c125bce2faf88fa902f1cae69f7b3d14287138",
+      "sha256": "d835b810d403110d525ea92a0377da3106d89a1027e7e6263974afbf223582f5",
+      "description": "Founding v0.1 specification of the SEE program: the first operational hypothesis and substrate design (first formula and first description; content private).",
+      "note": "founding priority object"
+    },
+    {
+      "id": "PM-02",
+      "date": "2026-05-06",
+      "private_commit": "80c125bce2faf88fa902f1cae69f7b3d14287138",
+      "sha256": "337412e89f496d0863fe57e0c45bd52b98da8804e2f406836dace803738ff8e7",
+      "description": "Founding research plan of the SEE program (content private)."
+    },
+    {
+      "id": "PM-03",
+      "date": "2026-05-06",
+      "private_commit": "80c125bce2faf88fa902f1cae69f7b3d14287138",
+      "sha256": "ea35ae7372ed67c2909c2e963acee1d293f38c18fb583cfb0e096654b49b1370",
+      "description": "Founding workspace README carrying the core-hypothesis statement (content private)."
+    },
+    {
+      "id": "PM-04",
+      "date": "2026-05-06",
+      "private_commit": "80c125bce2faf88fa902f1cae69f7b3d14287138",
+      "sha256": "33ac693f7ae8e974dc4aca6db28448fa60164cf45d7b3b274f05f440c7004570",
+      "description": "Founding source module: bounded-resource (energy) accounting (source file; hash-only entry).",
+      "note": "hash-only"
+    },
+    {
+      "id": "PM-05",
+      "date": "2026-05-06",
+      "private_commit": "80c125bce2faf88fa902f1cae69f7b3d14287138",
+      "sha256": "00e50e7d6a2b8693d4017cb0c9bf410de8ec354a6ca9048242e877d3f8ab1dbb",
+      "description": "Founding source module: distinction dynamics (source file; hash-only entry).",
+      "note": "hash-only"
+    },
+    {
+      "id": "PM-06",
+      "date": "2026-05-13",
+      "private_commit": "9d47be363affef33e7556f6dba155d0a9f224556",
+      "sha256": "280c75137a53df9cb35801a3d2e358e26232e63db0e5d6ead0c0c588ccf91acd",
+      "description": "Project provenance record: creator, owner, and lead developer recorded in-repo."
+    },
+    {
+      "id": "PM-07",
+      "date": "2026-05-31",
+      "private_commit": "03be218669cc887920ca805fee68e0bfd64e2f51",
+      "sha256": "9f7941d20b1bc47c2fc4125811a74850ca77cc9f785286764151888b7ba48785",
+      "description": "In-repo authorship/IP timeline generated from git history and an executed technical proof ledger (55/55 validation commands passed, 12/12 claims supported at generation HEAD 4e61c128...)."
+    },
+    {
+      "id": "PM-08",
+      "date": "2026-06-28",
+      "private_commit": "15274a0dc9484d1ef3f7eccf62ea8317598771a7",
+      "sha256": "617e2c8b5eca7bf9bcd7c0f2dc8e213f6cac11e689f65905f2c713af87d27b33",
+      "description": "Theory document: temporal identity and the provenance horizon \u2014 what a present computation state still proves about its past (content private)."
+    },
+    {
+      "id": "PM-09",
+      "date": "2026-06-28",
+      "private_commit": "59ac98a445ca07c090b27f509ab42e0289792d85",
+      "sha256": "e812f2e39366cfc449fee875759b9095778597393ec5aa777b2506c8c5b9fd72",
+      "description": "Provenance-horizon preregistration (design-only, fail-closed; content private)."
+    },
+    {
+      "id": "PM-10",
+      "date": "2026-07-02",
+      "private_commit": "02ac42534e39d125611775beec1dd41a9460e226",
+      "sha256": "5e710f677ec4d012fa5e978499cf8361730e40592e176421317af8249e9c2948",
+      "description": "Provenance-horizon numeric freeze (frozen constants; content private)."
+    },
+    {
+      "id": "PM-11",
+      "date": "2026-06-24",
+      "private_commit": "5bfc7b2a5ed215fa692a89e2ee4f03c105a4ae83",
+      "sha256": "67876901607fd1e5c9d4644ca64c112fffdf4036f4aaba1e7bf4ac1d3cc4f934",
+      "description": "PSEK Phase 0: terminal-negative verdict, locked (an honest negative written up with the same rigor as a positive; content private)."
+    },
+    {
+      "id": "PM-12",
+      "date": "2026-06-24",
+      "private_commit": "d6b971d7db9a84305a08abfc801e0e63bf2d0977",
+      "sha256": "d5707fbbccbaa2b14f6a584cb346c2379ae86196f88a6d19e485021d901ef90c",
+      "description": "PSEK Phase 1: preregistration (design-only; content private)."
+    },
+    {
+      "id": "PM-13",
+      "date": "2026-06-24",
+      "private_commit": "105d28b248a7be3840c80c81519ca4804b922fa9",
+      "sha256": "36ab9f9be235abe3d57e828730e60a07ed776f5c412b9110e21ffeb6b3bd222b",
+      "description": "PSEK Phase 1: STOP-UNDERPOWERED verdict on the frozen design (verdict distinct from diagnosis; content private)."
+    },
+    {
+      "id": "PM-14",
+      "date": "2026-06-24",
+      "private_commit": "5453aa12f84d9ea26a72170080fbcd1b1c336dfa",
+      "sha256": "93127f721547b3a077bafeb25ea569ad8ad4cc49b28a9ebc7966381ac7d03dfd",
+      "description": "PSEK Phase 2: preregistration (design-only; content private)."
+    },
+    {
+      "id": "PM-15",
+      "date": "2026-06-24",
+      "private_commit": "03f8e240786646b7700f44f7d48690aca385eb7a",
+      "sha256": "c8263e8e68d59d32a427bfbc78cb96e8af2bcc5fd49df45d27319c18c615a4de",
+      "description": "PSEK Phase 2: locked numeric freeze (frozen constants; content private)."
+    },
+    {
+      "id": "PM-16",
+      "date": "2026-06-28",
+      "private_commit": "74c056bac40ddae8f59d267cc82b7067b743f1df",
+      "sha256": "691dfd6a2ba29b36ad062da3794682d06f583a5639c1a5f2c9dc55ae50856682",
+      "description": "Theory document: state-dependent causal necessity of stored weight distinctions; carrier families; coverage-scoped negatives (captured 2026-06-28, refined same day).",
+      "note": "byte-identical at repo HEAD 2026-07-07"
+    },
+    {
+      "id": "PM-17",
+      "date": "2026-06-28",
+      "private_commit": "4980cfb2879211d35fb77f551eac52b90d21c02f",
+      "sha256": "6ba99fb543cf9e57d613d7ca364dfd383dae24cb8557603e18a98143ee0bd972",
+      "description": "Phase-3 preregistration, LOCKED: fail-closed design for measuring state-dependent necessity (categorical route-flip substrate, encoding-artifact firewall, FDR over the search tree, planted-necessity control, five-verdict vocabulary).",
+      "note": "byte-identical at repo HEAD 2026-07-07"
+    },
+    {
+      "id": "PM-18",
+      "date": "2026-06-29",
+      "private_commit": "aca08a52ef5bfe43c04506007c717dcfb0abb0e2",
+      "sha256": "0944d1c350454a747a06acd4fe74c5a5cc9239b18c86e418387ba72688273833",
+      "description": "Phase-3 numeric freeze: every numeric degree of freedom frozen and hash-committed before evaluation (DEV-only; constants private).",
+      "note": "byte-identical at repo HEAD 2026-07-07"
+    },
+    {
+      "id": "PM-19",
+      "date": "2026-07-07",
+      "private_commit": "23b9226d219c8c02392f72cb8942114af66a93a8",
+      "sha256": "6ed7ca1f352fd31d66fdbdab589ee47e3cbe2b69939732a210938feca759eb7d",
+      "description": "Phase-3 numeric-freeze amendment A10: a freeze-vs-source drift found and reconciled pre-evaluation (constants private)."
+    },
+    {
+      "id": "PM-20",
+      "date": "2026-07-04",
+      "private_commit": "b931ee8bf61a459ae0b2a7de0f9fa563289c518d",
+      "sha256": "b91820681669f1b7fc24e8b0e625c15ae274200da77660da48dc3814bb0b745f",
+      "description": "Deletion-microscopy program note: quantization-residual R = W - dequant(Q(W)) as a deletion microscope; instrument chain; the gemma-4-E2B null-gated negative and refused false positives.",
+      "note": "first committed 2026-07-04; hashed at repo HEAD (includes verdicts through 2026-07-06)"
+    },
+    {
+      "id": "PM-21",
+      "date": "2026-07-04",
+      "private_commit": "e34761885f74f86f98bf23f25232b01ecca3bafc",
+      "sha256": "bebab2ce4e254ef1fe09e656fb59e59b4a228b74fe3417f1b729708b43f7516b",
+      "description": "Program statement: forward spectral provenance of inference, with causal ablation as the only admissible verifier (content private)."
+    },
+    {
+      "id": "PM-22",
+      "date": "2026-07-06",
+      "private_commit": "b931ee8bf61a459ae0b2a7de0f9fa563289c518d",
+      "sha256": "4e2dd11a91d5bdc831cab48bc2f0ae56f674ebc18e19ac4b1260de2381b8f912",
+      "description": "Same-day response plan to the Anthropic workspace paper: construct-by-construct mapping and the E1-E4 experiment program.",
+      "note": "created 2026-07-06 (042c4eee); hashed at repo HEAD"
+    },
+    {
+      "id": "PM-23",
+      "date": "2026-07-07",
+      "private_commit": "b931ee8bf61a459ae0b2a7de0f9fa563289c518d",
+      "sha256": "e90f42696741d9adddb1711d6a1efb7728b9708427081ece5fd99dc8c12565cc",
+      "description": "Position note v0.3 (private original of this repository's POSITION_NOTE.md), quotations verified against the published paper and commentary."
+    },
+    {
+      "id": "PM-24",
+      "date": "2026-07-07",
+      "private_commit": "b931ee8bf61a459ae0b2a7de0f9fa563289c518d",
+      "sha256": "f41531d2c5cb2bb9903bd5505f4b9cc0826ac4a9a9a89f350ca94012dc372514",
+      "description": "Companion abstract of the position note (draft, not posted)."
+    },
+    {
+      "id": "PM-25",
+      "date": "2026-07-07",
+      "private_commit": "859b40771becd3926fd6f5f67931c5b4831306fb",
+      "sha256": "e47e466c966ceb2f54112074b9176a11177906cd5d0e1bdfba0fae6f8e4203c1",
+      "description": "W4 fragility verdict: the finest production-representative int4 tier selectively breaks flexible behaviors on qwen3-1.7b; nine lock-held flips; tier-ladder shape."
+    },
+    {
+      "id": "PM-26",
+      "date": "2026-07-07",
+      "private_commit": "859b40771becd3926fd6f5f67931c5b4831306fb",
+      "sha256": "fded8bfa520e2704d0632f55385eaae5fe1dbc4a4b6987c907da23c38c1c2f1d",
+      "description": "W4 behavioral battery v2: 44 prompt items across 4 families mapped to the workspace paper's flexible-vs-routine paradigms (full prompts private).",
+      "note": "battery line first committed 2026-07-06 (fd16b2a9)"
+    },
+    {
+      "id": "PM-27",
+      "date": "2026-07-07",
+      "private_commit": "859b40771becd3926fd6f5f67931c5b4831306fb",
+      "sha256": "f20f1fb457a2cbc8cf06929b7637bea735e20b47cf636cbd0fc2f8daa181ac4d",
+      "description": "W4 graded summary table (survivor-based pass rates per family per tier)."
+    },
+    {
+      "id": "PM-28",
+      "date": "2026-07-07",
+      "private_commit": "859b40771becd3926fd6f5f67931c5b4831306fb",
+      "sha256": "f72ea3742e87923ebf344b2371e1b83bb59b082dd6bb264f5c516fb41244754c",
+      "description": "W4 graded per-item results on the production-representative int4 tier (raw decodes; content private)."
+    },
+    {
+      "id": "PM-29",
+      "date": "2026-07-07",
+      "private_commit": "859b40771becd3926fd6f5f67931c5b4831306fb",
+      "sha256": "7622e9d601882fa7043e2d376ed19a8cdbad6c4ec4fb5038ded66c8af3157ef8",
+      "description": "Per-tensor residual-deletion ledger for the production-representative int4 tier on qwen3-1.7b (site-level statistics; content private).",
+      "note": "first committed 2026-07-06 (fd16b2a9)"
+    },
+    {
+      "id": "PM-30",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "3a076babc5e122e38d204fa5cfba0ff8e9aa40404015a7e361e67dc3d4ddaf92",
+      "description": "HEADLINE dissociation artifact: band L8-11, alpha 0.25, whole-context \u2014 report +11.025 nats real vs +1.064 null, continuation intact both arms; verdict workspace_dissociation; includes determinism block and raw token streams."
+    },
+    {
+      "id": "PM-31",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "f598a12870522f512ab5901b902794df5cadfe148d7f50e295a9a67c5abfb8f2",
+      "description": "Dose-response artifact: alpha 0.5 whole-context \u2014 joint_flip (report and continuation flip together)."
+    },
+    {
+      "id": "PM-32",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "f0059d00d1b79b4d1fc826b5d73aea31461fc6f1f0ce0f58b6eca681f32aa86b",
+      "description": "Dose-response artifact: report-time-only injection, alpha 0.0625 \u2014 no_report_flip; null >= real."
+    },
+    {
+      "id": "PM-33",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "f1c60f7c1613d5464411a063a547fe11d292d33c0681feecc2282e4e65a8f21c",
+      "description": "Dose-response artifact: report-time-only injection, alpha 0.125 \u2014 no_report_flip; null >= real."
+    },
+    {
+      "id": "PM-34",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "fcf17f8da9f89b3bc2db688376b8b1de06d357f0076ef24246f00dd537a84dbc",
+      "description": "Dose-response artifact: report-time-only injection, alpha 0.25 \u2014 no_report_flip; null >= real."
+    },
+    {
+      "id": "PM-35",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "fe5c47630b5e94f0e8fec848ecef047e44aba96e204d4a136fdcdb9246bc7383",
+      "description": "Dose-response artifact: report-time-only injection, alpha 0.5 \u2014 null_confounded (the would-be false positive the null caught)."
+    },
+    {
+      "id": "PM-36",
+      "date": "2026-07-06",
+      "private_commit": "c80c642539eaae8f9f404fac7aefae544d03d42c",
+      "sha256": "e1c14eb65953706c1dba07a7172f448e5dab78979ffc5ee6ce25d1c1ac212b74",
+      "description": "Dose-response artifact: alpha 1.0 whole-context \u2014 joint_flip."
+    },
+    {
+      "id": "PM-37",
+      "date": "2026-07-06",
+      "private_commit": "d43e85b28c073776d0228d45ff7c04575b5acf9f",
+      "sha256": "e93f2a5aac28a3c42b8787e27744698d3b0ca81bf5de1bda321a89b8511f1585",
+      "description": "OLMoE M3-feasibility evidence pack: verdict FEASIBLE; 3/3 shards, 3219 weight-map entries; anchor forward token-correct; 384/384 routing records; route-flip observable on all 16 MoE layers."
+    },
+    {
+      "id": "PM-38",
+      "date": "2026-07-06",
+      "private_commit": "47e37047e5c25d5ea215564c0d1541c34c09741f",
+      "sha256": "e93f2a5aac28a3c42b8787e27744698d3b0ca81bf5de1bda321a89b8511f1585",
+      "description": "Solo re-run of the M3-feasibility gate under an exclusive-GPU lock: BIT-IDENTICAL to PM-37 \u2014 note the sha256 equals PM-37's, the bit-identity claim is verifiable inside this public manifest.",
+      "note": "sha256 identical to PM-37 by construction"
+    },
+    {
+      "id": "PM-39",
+      "date": "2026-07-06",
+      "private_commit": "47e37047e5c25d5ea215564c0d1541c34c09741f",
+      "sha256": "c1eb519e35d8e8311ba7843a3c3abc5f718f0fbabec3d0dd5bc38d5ad5e6e98f",
+      "description": "Solo-confirm note: reproduction conditions and the zero-differing-bytes comparison (paths redacted in public quotation; file content private)."
+    },
+    {
+      "id": "PM-40",
+      "date": "2026-07-06",
+      "private_commit": "47e37047e5c25d5ea215564c0d1541c34c09741f",
+      "sha256": "9a70c0d347bb7296af0043f2d164a78d24e6bfffd9e67fe8b3f8ae7afb3d396c",
+      "description": "OLMoE weights provenance: HF revision pin + sha256 verification against the upstream LFS manifest.",
+      "note": "provenance captured with the gate run (d43e85b2); hashed at its relocated path (47e37047)"
+    },
+    {
+      "id": "PM-41",
+      "date": "2026-07-06",
+      "private_commit": "3503a1606dfece809b29d2cfda96f7461e14ebf2",
+      "sha256": "71610f102f4b774ed8cf88cc4ea2b2b30f000039da5edf6509694e1572fca30c",
+      "description": "J-Lens direction-pack proof manifest (qwen3-1.7b): extraction provenance, per-model-file sha256, pack sha256, official-parser verification.",
+      "note": "readout numbers are recorded in the position note, PM-23; the final-layer anchor is recomputable from the sha-pinned pack + model files"
+    },
+    {
+      "id": "PM-42",
+      "date": "2026-07-06",
+      "private_commit": "c74ccfeaff30cb40083a3d2ba1070169ec2d7253",
+      "sha256": "db48627e945bd0fcd71245fb71f30c92c3930c43f5f752637b7ee3f27de48be4",
+      "description": "Wave-0 integration gate transcript: release build + anchor smoke + 3-run CUDA decode bitwise-determinism GREEN (per-step top-8 logit stream fnv1a64 445f710a693a80c9)."
+    }
+  ]
+}
