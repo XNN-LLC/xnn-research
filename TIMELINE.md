@@ -77,6 +77,17 @@ noted.
 | 2026-07-07 | Stack ground-truth and repository-index documents refreshed to record the 2026-07-06/07 response wave (living documents, repo-HEAD-bound). | `b07548cf` | — |
 | 2026-07-07 | Manifest **Update 2026-07-07 (2)** assembled (PM-43..PM-67, append-only); second private repo-HEAD binding: `7c27f1db2ae3532749cdf71b4154b399640095ce`. | — | manifest Update (2) |
 
+## 2026-07-07 — third wave: E1 resolved, honest negative, rescore
+
+| Date | Event | Private commit | Manifest |
+| --- | --- | --- | --- |
+| 2026-07-07 | **A/B binary timing record:** the same workspace-map cell run on two binaries — readout payloads byte-equal, wall clock 133 s vs 1066 s (8x) — committed as an honest performance-anomaly note; readout integrity unaffected. | `7f808357` | PM-84..PM-86 |
+| 2026-07-07 | **The K=24 consolidation site identified:** the single passing position of the sweep (PM-65..PM-67) is the token " Los" — the first token of the prompt's second sentence. The consolidation site sits at a **sentence boundary**, consistent with content being consolidated where a clause closes (identity cross-checked against the committed sweep artifacts and the internal verification table). | (identity over PM-65..PM-67 artifacts) | PM-65..PM-67 |
+| 2026-07-07 | **E1 Stages A+B (lock-held): the int4 window is committed** — own-pack margin +8.07; bf16-pack transfer margin +9.14 (concept directions are precision-portable); per-tensor int4 report channel dead at baseline (−0.45 vs −16.52). Resolves the §6 PRELIMINARY exactly as promised. | `99ccb6c8` | PM-68..PM-74 |
+| 2026-07-07 | **Marker-hygiene fix + offline rescore:** companions committed for every affected artifact, originals untouched; exactly three per-band verdicts flip `joint_flip` → `workspace_dissociation` (1.7B α1.0 L0-3; 8B α0.25 L24-27; 8B last/α1.0 L20-23) — the window is WIDER under corrected scoring; nothing weakened. | `9357107c` | PM-83 |
+| 2026-07-07 | **E1 reinjection legs complete — double-negative carrier verdict (honest negative):** the real residual reinstated at the two top residual-norm site rollups beats its norm-matched shuffled null on NEITHER channel (window +0.28/−0.20 = noise; gates 0/9 on real arms; the single restoration event on a null arm). First-order picture: **diffuse deletion**. Coverage-scoped. | `e23f054d` | PM-75..PM-82 |
+| 2026-07-07 | Manifest **Update 2026-07-07 (3)** assembled (PM-68..PM-86, append-only); third private repo-HEAD binding: `e23f054dc3a8c790f365fb159888ae3beef9d6b0`. | — | manifest Update (3) |
+
 **Reading rule.** Private rows marked with manifest references are provable
 today: request the document under NDA, hash it, compare. Private rows without a
 manifest reference are ordinary git history in the private repository and are

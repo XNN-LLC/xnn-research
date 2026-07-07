@@ -93,7 +93,9 @@ per-tensor = total collapse (0/18 incl. routine) — the non-selective endpoint.
 Per-item damage is NOT monotone across tiers: the tiers are different deletion
 maps `R`, not nested ones — exactly the object residual-reinjection dissects
 per site. Claim boundary: this is a *damage map*, not a carrier claim; WHERE
-the causal residual lives is the reinjection question (real-vs-null per site).
+the causal residual lives is the reinjection question (real-vs-null per site)
+— answered at first order in §6.2: an honest negative; the deletion is
+diffuse at the tested sites.
 
 ---
 
@@ -160,15 +162,71 @@ plus the sha-pinned model files.
 
 ---
 
-## 6. PRELIMINARY — the dissociation window survives int4
+## 6. E1 resolved: the int4 window is committed, and the reinjection verdict is an honest negative
 
-**Date 2026-07-07 · artifact pending commit · manifest: to be appended.**
-On the production-representative int4 tier (§2), the §1 dissociation
-configuration (L8–11, α=0.25, whole-context) still separates from its null:
-real-minus-null report margin **+8.07 nats**, vs **+9.96** on bf16.
-**PRELIMINARY:** single configuration, single model, artifact not yet merged
-to private main at manifest time; its sha256 will be appended to
-`PRIORITY_MANIFEST.md` in a dated update. Do not cite as a confirmed result.
+*(This section previously carried a PRELIMINARY +8.07 readout with a promise
+to hash-commit the artifact in a dated manifest update. That promise is now
+kept: the artifacts are committed and bound in manifest Update 2026-07-07 (3).)*
+
+### 6.1 The int4 window, committed (E1 Stages A+B)
+
+**Date 2026-07-07 · private commit `99ccb6c8` (under the exclusive-GPU lock) ·
+manifest PM-68..PM-74.** The §1 dissociation configuration (L8–11, α=0.25,
+whole-context) re-run on quantized packs:
+
+| pack / concept source | report shift real (nats) | null (nats) | window margin | verdict |
+| --- | --- | --- | --- | --- |
+| bf16, own pack (§1 reference) | +11.025 | +1.064 | **+9.96** | workspace_dissociation |
+| int4 asym fine-group, own pack | +9.419 | +1.350 | **+8.07** | workspace_dissociation |
+| int4 asym fine-group, **bf16-extracted pack (transfer)** | +9.501 | +0.360 | **+9.14** | workspace_dissociation |
+| int4 sym per-tensor | (channel dead at baseline: report log-odds −0.45 vs −16.52 on bf16) | — | — | null_confounded |
+
+Two findings: **(a) the workspace window survives production-representative
+int4** at nearly full strength; **(b) concept directions are
+precision-portable** — the bf16-extracted directions steer the int4 model at
+essentially the bf16 margin (+9.14), so the *content geometry* survives
+quantization even better than the model's own extracted copy. The per-tensor
+tier destroys the report channel before any injection — consistent with §2's
+total-collapse endpoint.
+
+### 6.2 The reinjection verdict — HONEST NEGATIVE (double-negative)
+
+**Date 2026-07-07 · private commit `e23f054d` · manifest PM-75..PM-82.**
+E1 Stage C asked WHERE the int4 damage lives: reinstate the real deleted
+residual `R` at the two top residual-norm-ranked site rollups (the
+attention-value-projection band and the MLP down-projection band), each
+against a norm-matched shuffled-residual null at the identical sites, and read
+both channels:
+
+| channel | attention-value sites | down-projection sites |
+| --- | --- | --- |
+| dissociation window (real-minus-null change) | **+0.28 nats** (noise) | **−0.20 nats** (null restored *more*) |
+| broken flexible gates restored (real arm) | **0/9** | **0/9** |
+| gates restored (null arm) | 0/9 | 1/9 (S04) — the leg's only restoration event, on a *shuffled* arm |
+| routine control block | 8/8 intact everywhere | 8/8 intact everywhere |
+
+**Formal verdict: no localized carrier at the tested sites under the tested
+budget — the real residual beats its null on NEITHER channel.** The one
+restoration event of the entire leg occurred on a null arm, which is exactly
+what noise looks like. First-order picture: **the int4 deletion that breaks
+flexible behavior is DIFFUSE** — it is not concentrated in the top
+residual-norm sites the deletion ledger ranks first. Coverage-scoped honestly:
+two site rollups, one reinjection budget, one model; "no necessity observed
+under tested state coverage," never "no carrier exists."
+
+### 6.3 Rescore note (marker hygiene) — the window got WIDER, not narrower
+
+**Date 2026-07-07 · private commits `9357107c`, `e23f054d` · manifest PM-83
+(deterministic 60-file bundle digest; rule in the entry).** A marker-hygiene
+fix (ambiguous short stopword markers shared across the language pair excluded
+from the continuation lexicon) was applied as an **offline rescore**:
+companion artifacts committed for every affected cell, **originals untouched**.
+Net effect: exactly **three per-band verdicts flip `joint_flip` →
+`workspace_dissociation`** (1.7B whole-context α=1.0 band L0-3; qwen3-8b
+whole-context α=0.25 band L24-27; qwen3-8b report-time-only α=1.0 band
+L20-23) and none weaken — under corrected scoring the dissociation window is
+**wider at both scales**. Headline rows in §1/§7 keep their original scoring;
+the companions carry the corrected one.
 
 ---
 
@@ -205,6 +263,9 @@ directly from the committed per-band verdicts:
   (absolute nats are not strictly comparable across d_model without an
   activation-norm normalizer; two scale points fix a line, not a law; same
   single concept pair and report question at both scales).
+  *(Rescore note: under the marker-hygiene rescore — §6.3 — the whole-context
+  α=0.25 window additionally gains band L24-27 and last/α=1.0 gains L20-23;
+  the original artifacts are untouched, companions committed.)*
 
 ---
 
@@ -262,4 +323,5 @@ of §8 gates the whole-context flagship, not each position cell); single model.
 - Method context and claim boundaries: `POSITION_NOTE.md`
 - Dated narrative: `TIMELINE.md`
 - Hash bindings for every artifact above: `PRIORITY_MANIFEST.md` /
-  `priority_manifest.json` (PM-01..42 + Update 2026-07-07 (2): PM-43..67)
+  `priority_manifest.json` (PM-01..42 + Update (2): PM-43..67 + Update (3):
+  PM-68..86)

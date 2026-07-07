@@ -137,3 +137,42 @@ dated update.
 Machine-readable mirror of this update: the `updates` block and the tagged
 entries (`"update": "2026-07-07-2"`) in
 [`priority_manifest.json`](priority_manifest.json).
+
+---
+
+## Update 2026-07-07 (3) — appended entries PM-68..PM-86 + third repo-HEAD binding
+
+**Appended 2026-07-07T21:54:09Z (UTC).** Same issuer, hash rule, and verification protocol as the
+header; nothing above the previous update was edited. **Third private
+repo-HEAD binding:** `e23f054dc3a8c790f365fb159888ae3beef9d6b0`
+(2026-07-07T17:43:00-04:00). **This update resolves the RESULTS.md §6
+PRELIMINARY exactly as promised:** the int4-window artifacts are now committed
+(PM-68, PM-71). It also commits the E1 Stage-C **double-negative reinjection
+verdict** (PM-75..PM-82), the marker-hygiene **rescore bundle** (PM-83 — a
+deterministic multi-file digest; rule stated in the entry), and the A/B binary
+timing record (PM-84..PM-86).
+
+| id | date | private commit | sha256 | description |
+| --- | --- | --- | --- | --- |
+| PM-68 | 2026-07-07 | `99ccb6c8` | `6a4d3263b1d5039350f0d80936682518fcb185e7ecc6e34b25fac5cafc74475a` | E1 Stage-A cell: the dissociation window ON the production-representative int4 pack with its own concept pack - real +9.4191 vs null +1.3503 nats (margin +8.07), verdict workspace_dissociation, continuation intact. Resolves the former PRELIMINARY +8.07 reading as promised. |
+| PM-69 | 2026-07-07 | `99ccb6c8` | `273cdcefd9fbc2decea7e7072c1dd11ec401170b3c97552e49ffe6a68f70e301` | E1 Stage-A cell: int4 pack at alpha 0.5 - joint_flip under original scoring (see the rescore bundle, PM-83). |
+| PM-70 | 2026-07-07 | `99ccb6c8` | `833df5679f4abe943cf64e63c41c5d23d5a010a804d9a5db551d6a520f6b8aae` | E1 Stage-A cell: int4 pack at alpha 1.0 - joint_flip under original scoring. |
+| PM-71 | 2026-07-07 | `99ccb6c8` | `7dc4d4c3ee95a93d0ed0c8e60a3ee23ea2840076fd9f267b6b086d5b8617f8c0` | E1 Stage-B transfer cell: bf16-extracted concept pack injected into the int4 model - real +9.5005 vs null +0.3599 nats (margin +9.14), workspace_dissociation: concept directions are precision-portable. |
+| PM-72 | 2026-07-07 | `99ccb6c8` | `1e24bb246c225e585f820a75e384c0c8096986bd2925c6c33923c65493433b78` | E1 Stage-A cell: per-tensor int4 - the report channel is dead at baseline (log-odds -0.4493 vs -16.52 on bf16, i.e. near chance before any injection); verdict null_confounded; continuation indeterminate. |
+| PM-73 | 2026-07-07 | `99ccb6c8` | `fd239cb3ef77b407b26e1e89e5e9e0433f0a6b9b81dd5076da250539da3fe308` | Concept-vector pack extracted from the production-representative int4 model (content private). |
+| PM-74 | 2026-07-07 | `99ccb6c8` | `ca5663afec6cf53c1140ddb163f63e6fc5c091e9c1a19e04b68d717b28fb9246` | Concept-vector pack extracted from the per-tensor int4 model (content private). |
+| PM-75 | 2026-07-07 | `e23f054d` | `64646a391d116b3c140ec16f93fdaa8de3cbf369bc8899dd9a7379afc9e2a450` | E1 Stage-C reinjection cell: REAL residual reinstated at the top residual-norm attention-value-projection band - window margin +7.80 (real +9.0652 / null +1.2630). |
+| PM-76 | 2026-07-07 | `e23f054d` | `11fcbce90a18d9b5cc6d907d29d9cf26fbb389ea186934b0c3038411a8b9dd9a` | E1 Stage-C reinjection cell: norm-matched SHUFFLED residual at the same attention-value sites - window margin +7.52; real-minus-null = +0.28 nats (noise; no window restoration). |
+| PM-77 | 2026-07-07 | `e23f054d` | `2aaf7e329b80eccfd1202bc33a2dcf2557f8b763fdcd77297e7c8d170b80d338` | E1 Stage-C reinjection cell: REAL residual reinstated at the top residual-norm MLP down-projection band - window margin +8.15. |
+| PM-78 | 2026-07-07 | `e23f054d` | `c0207c0ebe7da97e0f5948b07c46010f000d94ddb99d362b3134173d16e88e73` | E1 Stage-C reinjection cell: norm-matched SHUFFLED residual at the same down-projection sites - window margin +8.35; real-minus-null = -0.20 nats (the null restored more than the real). |
+| PM-79 | 2026-07-07 | `e23f054d` | `28d461f4fb75776c2b208f3ba7a766515581790216356eca3ee11a5496c1fb80` | E1 Stage-C gate battery, attention-value sites, REAL arm: 0/9 broken flexible gates restored; routine 8/8 intact. |
+| PM-80 | 2026-07-07 | `e23f054d` | `4eb090a918313a82ab5bd726c93dd982c574d2465cf557ec818982b2412eb972` | E1 Stage-C gate battery, attention-value sites, NULL arm: 0/9 restored; routine 8/8. |
+| PM-81 | 2026-07-07 | `e23f054d` | `62345a653c508a1d1da7c572cf07c8462fc8a9cc964317d048f4dfc33f22075e` | E1 Stage-C gate battery, down-projection sites, REAL arm: 0/9 restored; routine 8/8. |
+| PM-82 | 2026-07-07 | `e23f054d` | `fe9d23f9ac3f41137c0e2f87d34da144b579bfcba6eaa70595da2bc4f1ea2476` | E1 Stage-C gate battery, down-projection sites, NULL arm: 1/9 (item S04) - the single restoration event of the whole leg occurred on a SHUFFLED-residual arm, i.e. at noise level; routine 8/8. |
+| PM-83 | 2026-07-07 | `9357107c` | `d47308e0eabe0dfec5b0cc4a53da75ea953705ac3b09dc9fc272465cf8c0a4ea` | BUNDLE: the marker-hygiene rescore companions (60 files added at the two rescore commits; every affected artifact rescored offline, originals untouched). Bundle rule: sha256 over the newline-joined, name-sorted list of '<sha256(file bytes)>  <basename>' lines, one per *_RESCORED.json file added at the two commits (trailing newline). Under the rescore, exactly three per-band verdicts flip joint_flip -> workspace_dissociation (1.7B whole-context alpha 1.0 band L0-3; qwen3-8b whole-context alpha 0.25 band L24-27; qwen3-8b report-time-only alpha 1.0 band L20-23) - the dissociation window is WIDER at both scales; no verdict weakened. *(second commit for this bundle: e23f054d)* |
+| PM-84 | 2026-07-07 | `7f808357` | `6dd45195b13125a5c563354951cd4a30ad9950b984c02b2a0aeb89de370d7bbf` | A/B binary timing record, arm 1: full workspace-map cell re-run on the mainline binary - readouts identical to arm 2. |
+| PM-85 | 2026-07-07 | `7f808357` | `6dd45195b13125a5c563354951cd4a30ad9950b984c02b2a0aeb89de370d7bbf` | A/B binary timing record, arm 2: the same cell on the branch binary - readouts identical to arm 1. |
+| PM-86 | 2026-07-07 | `7f808357` | `5356193d41929016130f23a068b8254b42aac260f11d7786dc8bf519b82bb21f` | A/B timing log: 133 s vs 1066 s wall (8x) for byte-equal readout payloads - recorded as an honest performance-anomaly note (content private; hash-only). *(hash-only)* |
+
+Machine-readable mirror: the second `updates` element and the tagged entries
+(`"update": "2026-07-07-3"`) in [`priority_manifest.json`](priority_manifest.json).

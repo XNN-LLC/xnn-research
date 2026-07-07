@@ -19,9 +19,11 @@
 > private repo-HEAD commitments in the manifest, and specific hardware is genericized
 > ("a rented high-memory GPU instance"). Beyond those transformations, the earlier
 > audit-fix rebindings (the §3.1/PM-41 readout binding, the verdict-vocabulary phrasing)
-> are carried forward, and one dated cross-reference that postdates private v0.4 was
-> added: the §3.2 parenthetical pointing to the completed K=4 null ensemble and position
-> sweep (RESULTS.md §8–§9). Nothing else was changed.
+> are carried forward, and dated post-v0.4 status updates were added, each mirrored
+> from the results ledger with commit tags: the §3.2 parenthetical (K=4 ensemble and
+> position sweep, RESULTS.md §8–§9) and the E1-resolution updates in §6, §7.1, and the
+> claim ledger (int4 window committed; Stage-C double-negative verdict; rescore note —
+> RESULTS.md §6). Nothing else was changed.
 >
 > **Claim-tag legend (mandatory per our repo discipline):**
 > - **[committed]** — proven at the stated scope by code, a run artifact, or a verdict in
@@ -619,16 +621,26 @@ workspace-carrier response plan* **[committed `042c4eee`; PM-22]**.
   behaviors flip (suppression 4/6, trace-gap 4/5, two-hop 1/5) while routine stays 8/8;
   coarser tiers damage non-selectively, and per-item damage is non-monotone across tiers
   (different deletion maps, not nested) **[committed `859b4077`; PM-25..PM-29]** —
-  exactly the fragile substrate the bridge needs. What remains IN FLIGHT:
-  band-restricted residual reinjection, real vs shuffle-null, with silicon-diff
-  localization and a proof-pack verdict (Stage C). A first reading exists but is
-  **PRELIMINARY** and we flag it exactly as the results ledger does: the dissociation
-  configuration still separates from its null on the int4 tier (real-minus-null +8.07
-  nats vs +9.96 on bf16) — "single configuration, single model, artifact not yet merged
-  to private main at manifest time … Do not cite as a confirmed result" (RESULTS.md §6).
-  Either final outcome is a result: fragile-and-localized (first weight-space
-  localization of a workspace) or robust (a null-gated "workspace function survives
-  int4 at 1–2B scale").
+  exactly the fragile substrate the bridge needs. The Stage A+B window legs are now
+  **committed**: the dissociation window survives the production-representative int4
+  tier at margin +8.07 (own pack) and **+9.14 with the bf16-extracted pack — concept
+  directions are precision-portable across quantization** — while the per-tensor tier's
+  report channel is dead at baseline (−0.45 vs −16.52 log-odds)
+  **[committed `99ccb6c8`; PM-68..PM-74]** (RESULTS.md §6.1). And the Stage-C
+  reinjection legs are complete with a **double-negative carrier verdict, an honest
+  negative**: the real residual reinstated at the two top residual-norm-ranked site
+  rollups beats its norm-matched shuffled null on NEITHER channel — window
+  real-minus-null +0.28 / −0.20 nats (noise), broken gates 0/9 restored on both real
+  arms, the leg's single restoration event occurring on a *null* arm
+  **[committed `e23f054d`; PM-75..PM-82]** (RESULTS.md §6.2). The either-outcome
+  framing has therefore resolved, at this scale and budget, to the robust/diffuse side:
+  workspace function survives int4 at 1–2B scale, and the first-order picture of the
+  deletion is **diffuse** — not concentrated at the residual-norm-ranked sites.
+  Coverage-scoped: two site rollups, one budget, one model; finer-grained site maps
+  remain **[planned]**. A marker-hygiene rescore (companions committed, originals
+  untouched) flipped three per-band verdicts *toward* dissociation — the window is
+  wider, not narrower, under corrected scoring **[committed `9357107c`; PM-83]**
+  (RESULTS.md §6.3).
 - **E2 — Does a workspace exist without attention?** The same forward-only mapper across
   non-transformer recurrences on the same runtime. The substrate is unusual and already
   exists: our decoder runs 17+ architecture families through one loop
@@ -662,9 +674,12 @@ that surrounds the workspace result; nothing in our instrumentation measures, or
 measure, anything about experience. Further honest boundaries, explicitly:
 
 - **No weight-space carrier has been found to date.** The microscopy hunts returned
-  null-gated negatives (§4.5). The §3 dissociation is an *activation-space* result — the
-  bridge from the workspace band to specific weight-space carriers (E1's second half) has
-  not run.
+  null-gated negatives (§4.5), and the E1 Stage-C reinjection legs have now added a
+  formal **double-negative verdict** at the residual-norm-ranked sites: the real
+  residual beats its shuffled null on neither the window channel nor the gate channel
+  **[committed `e23f054d`; PM-75..PM-82]**. First-order picture: the int4 deletion that
+  breaks flexible behavior is **diffuse** at the tested sites. The §3 dissociation is an
+  *activation-space* result; the bridge verdict at finer site granularity remains open.
 - **The §3 dissociation is existence-level, not breadth.** One model (qwen3-1.7b), one
   concept pair (Spanish/French), one report question with single-token answer sets, a
   lexical-marker continuation proxy; at the dissociation dose the report shift is a
@@ -679,8 +694,11 @@ measure, anything about experience. Further honest boundaries, explicitly:
   observation; the feature-resolution exponent is matching-choice-dependent (its sign
   flips between defensible matchings), which is why we quote only the absolute
   null-floor drop, itself pending the activation-norm normalizer and K-null ensembles.
-  The int4-window +8.07 reading is PRELIMINARY (Stage-C artifact not yet on main) and is
-  not citable as a confirmed result.
+  The int4-window +8.07 reading, previously PRELIMINARY here, is now **committed**
+  (own-pack +8.07; bf16-pack transfer +9.14 — precision-portable concept directions)
+  **[committed `99ccb6c8`; PM-68..PM-74]**, and the Stage-C reinjection verdict is a
+  committed **honest negative** (double-negative: real beats null on neither channel;
+  first-order picture diffuse deletion) **[committed `e23f054d`; PM-75..PM-82]**.
 - **Scale risk.** The paper's phenomenology is frontier-scale ("By default, we report
   results on Claude Sonnet 4.5, but we corroborate key results on Haiku 4.5 and Opus 4.5
   as well" — paper); the 27B replication already required care. Our substrates are
@@ -718,7 +736,10 @@ measure, anything about experience. Further honest boundaries, explicitly:
 | K-null ensemble mode + single-position probe mode of the mapper | committed (instrument; flagship K=4 ensemble and position sweep since completed — RESULTS.md §8–§9) | `b3a6882e`; PM-60..PM-67 |
 | Finest production-representative int4 tier selectively breaks flexible tasks on qwen3-1.7b (9 bf16-correct flips; routine 8/8); tiers are non-nested deletion maps | committed | `859b4077`; PM-25..PM-29 |
 | This public prior repository: public note edition, RESULTS.md, TIMELINE.md, sha256 priority manifest (adversarial IP audit; PM-01..42 + Update 2026-07-07 (2), PM-43..67) | committed (this repository; verified live 2026-07-07) | this repository |
-| E1 Stage-C band-restricted reinjection; int4-window real-minus-null +8.07 nats | IN FLIGHT — PRELIMINARY; artifact not on main; "do not cite as a confirmed result" | RESULTS.md §6 |
+| E1 int4-window committed: own-pack margin +8.07; bf16-pack transfer +9.14 (precision-portable concept directions); per-tensor channel dead at baseline | committed | `99ccb6c8`; PM-68..PM-74 |
+| E1 Stage-C reinjection: DOUBLE-NEGATIVE carrier verdict (honest negative) — real beats null on neither channel (window +0.28/−0.20 noise; gates 0/9 real, single restoration on a null arm); first-order picture: diffuse deletion | committed | `e23f054d`; PM-75..PM-82 |
+| Marker-hygiene rescore: companions committed, originals untouched; 3 per-band verdicts flip toward dissociation (window wider at both scales) | committed | `9357107c`; PM-83 |
+| K=24 consolidation site = " Los", the first token of the prompt's second sentence (sentence-boundary identity) | committed (identity over the sweep artifacts) | PM-65..PM-67 |
 | Flexible-vs-routine behavioral gate suite (workspace-gates) | committed | `69bfeb0b` |
 | J-Lens oracle extractor + qwen3-1.7b proof pack: France@L19 / Paris@L21+ while actual next token is " the"; final-layer rows bit-exact vs tied unembedding (max diff 0.0) | committed | `3503a160`; PM-41 (extraction provenance), PM-23 (readout record); anchor recomputable from the sha-pinned pack + model files |
 | CUDA greedy decode bitwise-deterministic across 3 runs (top-8 logit stream fnv1a64 `445f710a693a80c9`) | committed | `76ff3b6e`, `c74ccfea`; PM-42 |
@@ -729,8 +750,8 @@ measure, anything about experience. Further honest boundaries, explicitly:
 | OLMoE router instrumentation; route agreement 3–19x above chance | committed | repo-HEAD-bound (recorded 2026-06-09) |
 | No finite-value clamps in the math chain (guarded by regression tests on both GPU runtimes) | committed | `98eca5c6`, `b35aa7ce`, `1370fcbd` |
 | Int4 fragility damage map: finest tier selectively breaks flexible behaviors (9 flips), routine intact | committed | `859b4077`; PM-25..PM-29 (see RESULTS.md §2) |
-| E1 Stage-C verdict, K-null ensembles at 8B, third scale point, E2, E3 evaluation, E4 remaining claims | planned | PM-22 |
-| Workspace-band × residual-carrier bridge verdict | none — not run | — |
+| Finer-grained E1 site maps, K-null ensembles at 8B, third scale point, E2, E3 evaluation, E4 remaining claims | planned | PM-22 |
+| Workspace-band × residual-carrier bridge verdict | first-order verdict committed: honest negative at the residual-norm-ranked sites (diffuse deletion); finer site granularity open | `e23f054d`; PM-75..PM-82 |
 
 ---
 
