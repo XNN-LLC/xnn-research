@@ -176,3 +176,21 @@ timing record (PM-84..PM-86).
 
 Machine-readable mirror: the second `updates` element and the tagged entries
 (`"update": "2026-07-07-3"`) in [`priority_manifest.json`](priority_manifest.json).
+
+---
+
+## Update 2026-07-07 (4) — appended entry PM-87 + fourth repo-HEAD binding
+
+**Appended 2026-07-07T22:40:00Z (UTC).** Same issuer, hash rule, and verification protocol as the
+header; nothing above the previous update was edited. **Fourth private
+repo-HEAD binding:** `20992e97b98ecbcf6f1a2e54c2187d4c5f05e69a`. This update
+binds the E2 attention-free workspace cells (Mamba2-780M, RWKV7-0.4B — RESULTS.md
+§10) and the cross-lens equivalence (J-Lens vs activation-difference — RESULTS.md
+§11) as a single deterministic bundle.
+
+| id | date | private commit | sha256 | description |
+| --- | --- | --- | --- | --- |
+| PM-87 | 2026-07-07 | `20992e97` | `b5a38239b8361891f8d1d346c640b63544c2908643b9960aac2baa9ef2df8dd0` | BUNDLE: the E2 attention-free workspace cells + the cross-lens equivalence pack (17 files added at commit `20992e97`: the Mamba2-780M and RWKV7-0.4B intervene artifacts + concept packs + weight-provenance record; the J-Lens-vs-activation-difference comparison + geometry + per-α J-Lens cells + packs; and the scale-ladder note). Bundle rule: sha256 over the newline-joined, name-sorted list of `<sha256(file bytes)>  <basename>` lines, one per file added at the commit (trailing newline). Content: attention-free dissociation on Mamba2 (L12-15/L16-19: real +0.64/+1.86 vs null ~-0.13/-0.09) and RWKV7 (L4-7/L8-11: real +0.86/+1.13 vs null ~+0.08); cross-lens — J-Lens and activation-difference swap vectors both produce null-gated dissociation at L8-11 (J-Lens real +1.27 vs null +0.087 at α0.0625; activation-diff +11.03 vs +1.06 at α0.25). Seam commit for the non-transformer path: `a101cd44`. |
+
+Machine-readable mirror: the third `updates` element and the tagged entry
+(`"update": "2026-07-07-4"`) in [`priority_manifest.json`](priority_manifest.json).

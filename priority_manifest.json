@@ -674,6 +674,15 @@
       "description": "A/B timing log: 133 s vs 1066 s wall (8x) for byte-equal readout payloads - recorded as an honest performance-anomaly note (content private; hash-only).",
       "update": "2026-07-07-3",
       "note": "hash-only"
+    },
+    {
+      "id": "PM-87",
+      "date": "2026-07-07",
+      "private_commit": "20992e97b98ecbcf6f1a2e54c2187d4c5f05e69a",
+      "sha256": "b5a38239b8361891f8d1d346c640b63544c2908643b9960aac2baa9ef2df8dd0",
+      "description": "BUNDLE: the E2 attention-free workspace cells + the cross-lens equivalence pack (17 files added at commit 20992e97: Mamba2-780M and RWKV7-0.4B intervene artifacts + concept packs + weight-provenance record; the J-Lens-vs-activation-difference comparison + geometry + per-alpha J-Lens cells + packs; and the scale-ladder note). Bundle rule: sha256 over the newline-joined, name-sorted list of '<sha256(file bytes)>  <basename>' lines, one per file added at the commit (trailing newline). Content: attention-free dissociation on Mamba2 (L12-15/L16-19 real +0.64/+1.86 vs null ~-0.13/-0.09) and RWKV7 (L4-7/L8-11 real +0.86/+1.13 vs null ~+0.08); cross-lens - J-Lens and activation-difference swap vectors both null-gated at L8-11 (J-Lens real +1.27 vs null +0.087 at alpha 0.0625; activation-diff +11.03 vs +1.06 at alpha 0.25).",
+      "update": "2026-07-07-4",
+      "note": "seam commit for the non-transformer path: a101cd44"
     }
   ],
   "updates": [
@@ -738,6 +747,15 @@
         "PM-86"
       ],
       "note": "Append-only update. Resolves the RESULTS.md section-6 PRELIMINARY as promised: the int4-window artifacts are committed (PM-68, PM-71). Adds the E1 Stage-C double-negative reinjection verdict artifacts (PM-75..PM-82), the marker-hygiene rescore bundle (PM-83), and the A/B binary timing record (PM-84..PM-86)."
+    },
+    {
+      "id": "2026-07-07-4",
+      "generated_utc": "2026-07-07T22:40:00Z",
+      "private_repository_head_commit": "20992e97b98ecbcf6f1a2e54c2187d4c5f05e69a",
+      "entries_added": [
+        "PM-87"
+      ],
+      "note": "Append-only update. One bundled entry (PM-87) binding the E2 attention-free workspace cells (Mamba2-780M, RWKV7-0.4B - RESULTS.md section 10) and the cross-lens J-Lens-vs-activation-difference equivalence (RESULTS.md section 11), all 17 files added at commit 20992e97. Seam commit for the non-transformer forward path: a101cd44."
     }
   ]
 }

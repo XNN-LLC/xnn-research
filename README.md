@@ -1,98 +1,97 @@
-# XNN Research — causal-carrier metrology (public priority record)
+# A language model reports one language while writing another — and we can move the report without moving the writing
 
-**Who we are.** This public record is authored and maintained by Gleb Stepanov,
-an independent researcher and developer and founder/lead developer of XNN LLC,
-an independent research and development company based in Georgia, USA. Since
-May 2026 XNN LLC has been building a research program — SEE — around one
-discipline: **causal claims
-about neural systems must survive matched null controls, preregistration, and
-execution receipts, or they are not claims.** The program runs on a
-self-contained runtime with a hand-written GPU backend and zero third-party ML
-dependencies on the product path, so that every experiment's execution is an
-auditable object rather than a stack of trusted frameworks.
+Give a language model a Spanish passage and ask "what language is this?" — it says
+Spanish. Now, inside the model, add a small "French-minus-Spanish" direction to the
+middle layers. Ask again: it now says **French** — while it keeps *writing* fluent
+Spanish. The thing it *says about* the text and the thing it *does with* the text have
+come apart. This mirrors Anthropic's 2026 "global workspace" finding, and we add the one
+control that makes it a real result: a **norm-matched shuffled** version of the same
+injected vector (same size, meaning scrambled) barely moves the report at all. So the
+report moved because of *what* we injected, not just because we perturbed the model.
 
-XNN LLC is not an academic lab, and this repository does not ask readers to
-accept claims on credentials. LLM systems may assist with writing, editing, and
-code workflows, but the authority for claims here is the evidence record:
-committed artifacts, run results, timestamps, sha256 manifests, and
-reproducible records.
+## Reproduce it yourself
 
-**What this repository is.** The private research repository is not public.
-This repository is the public, self-sufficient record of the program's claims,
-dates, and results: the position note, the result tables, a dated timeline back
-to the program's first formulation, and a **cryptographic priority manifest** —
-sha256 commitments to the private documents and run artifacts, so that priority
-is provable without disclosure. Full documents are disclosed selectively
-(collaboration, NDA, publication).
+No account, no private code. Just the open stack:
 
-## The thesis
+```
+pip install torch transformers
+python reproduce.py
+```
 
-- **State-dependent causal necessity.** A stored weight distinction has a fixed
-  address but a *state-dependent* causal significance: the same perturbation
-  can be invisible in one inference state and flip a discrete decision in
-  another. Which distinctions are necessary, for which behaviors, in which
-  states, at what precision — that is the program's question (theory
-  formalized 2026-06-28, hash-committed; see `PRIORITY_MANIFEST.md`).
-- **Deletion microscopy in weight space.** Quantization is controlled deletion:
-  `R = W − dequant(Q(W))` is an addressable map of every distinction a
-  quantized model can no longer make. Reinjecting pieces of `R` — always
-  against a **norm-matched shuffled null at the same site** — asks which
-  deleted distinctions were holding a behavior.
-- **Null-gated causal claims.** Every steering/injection claim must beat a
-  norm-matched shuffle-null; discovery sweeps are preregistered with
-  hash-committed numeric freezes and FDR over the whole search tree; decodes
-  are bit-deterministic with per-operation checksum receipts. Fail-closed
-  verdicts (including STOP and VOID) are first-class outcomes.
+[`reproduce.py`](reproduce.py) is ~120 commented lines using only `torch` +
+`transformers` against public `Qwen/Qwen3-1.7B`. It builds the concept vector from five
+short Spanish/French sentence pairs, injects it at layers 8–11, and prints both arms.
+Expected shape (our actual CPU run is in [`reproduce_output.txt`](reproduce_output.txt)):
 
-## Relationship to Anthropic's global-workspace paper (2026-07-06)
+```
+baseline report log-odds (French - Spanish): -8.5 nats
+  real vector   -> report shift +2.4 nats;  continuation: Spanish
+  shuffled null -> report shift +0.04 nats; continuation: Spanish
+  ratio real/null: ~55x   ->  PASS
+```
 
-Anthropic's "Verbalizable Representations Form a Global Workspace in Language
-Models" identifies a privileged activation subspace (J-space) carrying
-reportable, flexibly-usable content. Our program is the **complementary axis**:
-the same class of object, one level down, in the *weights*. On the day the
-paper landed we reproduced its central dissociation signature on open weights
-(qwen3-1.7b) **under a control the original lacked** — a norm-matched
-shuffle-null — and the same instrument's null *rejected* a confounded variant
-that an un-nulled pipeline would have published. The same day, our
-June-preregistered ignition-class design (near-margin route-flips at MoE
-routing boundaries) passed its hard feasibility gate on OLMoE,
-bit-identically reproduced. See `POSITION_NOTE.md` and `RESULTS.md`.
+The absolute numbers depend on the injection scale and will not match to the decimal —
+what must hold is **real ≫ norm-matched null, with the continuation unchanged**. Turn the
+scale up and the continuation flips too (joint steering): a dose–response with a real
+boundary. Read every line and decide for yourself.
 
-## The honest-score culture
+## The honest score
 
-We publish negatives with the same machinery as positives. The program's
-current honest score, stated plainly: weight-space carriers found so far:
-**zero** — including a paid, full-instrument negative on gemma-4-E2B OCR and
-now a formal **double-negative E1 reinjection verdict** (the real deleted
-residual beats its shuffled null on neither channel; first-order picture:
-diffuse deletion — `RESULTS.md` §6.2); activation-space dissociations found:
-**one** — now gated by a K=4 null ensemble (all four independent nulls pass),
-position-resolved to a single consolidation site, reproduced in broader form
-at a second scale (qwen3-8b), and shown to survive production-representative
-int4 with precision-portable concept directions (`RESULTS.md` §6–§9), still
-existence-level and labeled as such; two earlier program phases were closed as
-a **terminal negative** and a **STOP-UNDERPOWERED** — both written up and
-hash-committed. A methodology whose controls have never rejected anything is
-advertising, not metrology.
+Stated plainly, so nobody has to dig for it:
 
-## Files
+- **Weight-space carriers found: zero.** We hunt for specific stored weights that carry a
+  behavior, always against a shuffled-null control. So far none has beaten its null —
+  including a paid, full-instrument negative on gemma OCR, and a reinjection test where
+  the real deleted weights restored *nothing the shuffle didn't*. We publish these
+  negatives.
+- **Activation-space dissociations found: one**, null-gated, existence-level (the result
+  above). It reproduces at a second model size (qwen3-8b) and, more surprisingly, in
+  **attention-free** architectures (Mamba2, RWKV7) — see [`RESULTS.md`](RESULTS.md).
+- Two earlier research phases were closed as a **terminal negative** and a
+  **STOP-UNDERPOWERED**, both written up rather than buried.
+
+A method whose controls have never rejected anything is advertising, not measurement.
+
+## What's in this repo
 
 | File | What it is |
 | --- | --- |
-| `AUTHORS.md` | Public authorship, company attribution, and LLM-assistance boundary |
-| `PUBLIC_UPDATE_V0_4.md` | v0.4-public update note: authorship/accountability clarification, no private disclosure |
-| `LEVEL1_ATTESTATION_GPT2_V0_4.md` | Sanitized public Level 1 model-BOM / weight-attestation companion for `openai-community/gpt2` |
-| `POSITION_NOTE.md` | Public edition of the position note (v0.5-public, 2026-07-07 — science text of private v0.4 + the v0.4-public attribution additions): "Weight-space carriers of the global workspace: deletion microscopy meets J-space" |
-| `RESULTS.md` | The numbers: dissociation dose-response, int4 fragility tier table, feasibility-gate criteria, determinism anchor, J-Lens oracle readout, E1 int4-window resolution + double-negative reinjection verdict + rescore note, qwen3-8b scale grid, K=4 null ensemble, position-resolved consolidation site |
-| `TIMELINE.md` | Dated priority narrative from the program's first formulation (2026-05-06) to the present, with private-record rows hash-committed and public-only update rows labeled separately |
-| `PRIORITY_MANIFEST.md` / `priority_manifest.json` | The cryptographic prior: sha256 commitments to the private documents and artifacts behind every claim |
-| `LICENSE` / `NOTICE.md` | All rights reserved; quotation permitted with attribution; no license to methods; patent rights reserved |
+| [`reproduce.py`](reproduce.py) / [`reproduce_output.txt`](reproduce_output.txt) | Clean-room reproduction + our actual run output |
+| [`RESULTS.md`](RESULTS.md) | All result tables: the dissociation dose-response, scale (8b), attention-free models, cross-lens, int4 |
+| [`POSITION_NOTE.md`](POSITION_NOTE.md) | The full write-up: how this relates to the workspace paper, the metrology, what we do and don't claim |
+| [`AUTHORS.md`](AUTHORS.md) / [`LICENSE`](LICENSE) / [`NOTICE.md`](NOTICE.md) | Authorship, license, permitted-use |
 
-**Claim discipline used throughout:** [committed] — proven at the stated scope
-by code, a run artifact, or a verdict in the private repository at the cited
-commit, whose content hash is committed here; [preregistered] — a frozen,
-hash-committed design whose evaluation has NOT run; [planned] — a dated
-intention, never presented as a result. We take no position on consciousness;
-this is causal-carrier metrology, nothing more.
+We take no position on consciousness; this is measurement of which internal directions
+are causally necessary for which behaviors, under controls.
 
 Contact: open an issue on this repository.
+
+---
+
+## Provenance & priority record (for dating, not for reading)
+
+The material below exists to timestamp what we had committed and when. It is archival —
+skip it unless you specifically need to check a date or verify an artifact hash under
+disclosure.
+
+The full experiments run on a private research repository. This public repository carries
+a **cryptographic priority record** — sha256 commitments to the private documents and run
+artifacts — so that priority is provable without disclosing the private material. A hash
+commits us to content; it discloses nothing.
+
+- [`PRIORITY_MANIFEST.md`](PRIORITY_MANIFEST.md) / `priority_manifest.json` — the sha256
+  commitments behind every claim, in dated append-only updates.
+- [`TIMELINE.md`](TIMELINE.md) — dated narrative from the program's first formulation
+  (2026-05-06) to the present; private rows are hash-committed, public-only rows labeled
+  separately.
+- `PUBLIC_UPDATE_V0_4.md` / `LEVEL1_ATTESTATION_GPT2_V0_4.md` — earlier public
+  authorship/attestation companions.
+
+**Claim tags used throughout:** [committed] = proven at the stated scope by a run
+artifact or verdict at a cited commit, whose content hash is committed here;
+[preregistered] = a frozen, hash-committed design whose evaluation has not run; [planned]
+= a dated intention, never presented as a result.
+
+Authored by Gleb Stepanov, founder of XNN LLC (Georgia, USA), an independent R&D company —
+not an academic lab. LLM systems assist with writing and code; the authority for any claim
+is the evidence record, not credentials.

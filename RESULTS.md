@@ -318,10 +318,73 @@ of §8 gates the whole-context flagship, not each position cell); single model.
 
 ---
 
+## 10. Does a workspace need attention? First cells say no (2026-07-07)
+
+**Date 2026-07-07 · private commits `a101cd44` (seam), `20992e97` (results).**
+The paper's commentary raises the recurrence objection — transformers "only
+implement a feedforward pass," so does the workspace signature depend on
+attention at all? We ran the same null-gated mapper (mean activation-difference
+concept vectors, Spanish→French swap, whole-context) on two **attention-free**
+architectures on the same runtime's non-transformer forward path: **Mamba2-780M**
+(a state-space model — no attention) and **RWKV7-0.4B** (a linear-attention RNN —
+no softmax attention). The report-vs-continuation dissociation appears in both.
+
+Mamba2-780M (48 layers), per band, real vs norm-matched null report shift:
+
+| band | report real (nats) | report null (nats) | continuation (real) | verdict |
+| --- | --- | --- | --- | --- |
+| L12–15 | +0.64 | −0.13 | Spanish | workspace_dissociation |
+| L16–19 | +1.86 | −0.09 | Spanish | workspace_dissociation |
+| L20+ (deeper) | rising | quiet | flips to French | joint_flip (over-steering, labeled) |
+
+RWKV7-0.4B, per band:
+
+| band | report real (nats) | report null (nats) | continuation (real) | verdict |
+| --- | --- | --- | --- | --- |
+| L4–7 | +0.86 | +0.08 | Spanish | workspace_dissociation |
+| L8–11 | +1.13 | +0.09 | Spanish | workspace_dissociation (best margin +1.04) |
+| L12+ (deeper) | rising | quiet | indeterminate/degenerate | joint_flip / degenerate, labeled |
+
+**Reading:** in both attention-free models there is a mid-network band where the
+real concept vector moves the verbal report while its norm-matched shuffle does
+not and the continuation keeps writing the source language — the same signature
+as the transformer, one band earlier in the shallower RWKV7. Deeper bands
+over-steer into joint flips, honestly labeled. This directly addresses the
+recurrence objection: the report-vs-continuation workspace signature does **not**
+require attention. Scope: two models, one concept pair, one report question,
+lexical-marker continuation proxy, existence-level — with all raw token streams
+committed. Backend note: these two families ran on the runtime's non-transformer
+forward path (a deterministic reference forward for these architectures), which
+is a measurement detail, not a result about the science.
+
+---
+
+## 11. Cross-lens: two different lenses find the same object (qwen3-1.7b)
+
+**Date 2026-07-07 · private commit `20992e97`.**
+Does the dissociation depend on how we derive the concept direction? We compared
+two independent lenses at the flagship site (L8–11, whole-context): the
+mean-activation-difference vector (§1) and a **J-Lens**-derived swap vector (from
+a Jacobian-to-output extractor). Both produce null-gated dissociation:
+
+| lens | α | report real (nats) | report null (nats) | verdict |
+| --- | --- | --- | --- | --- |
+| activation-difference (§1 reference) | 0.25 | +11.03 | +1.06 | workspace_dissociation |
+| J-Lens-derived swap vector | 0.0625 | +1.27 | +0.087 | workspace_dissociation |
+
+The two lenses steer the report null-specifically at the same band — the same
+functional object seen through two different instruments (mean cosine between the
+two directions is small, ~0.06, so this is not one direction wearing two names).
+The J-Lens cell dissociates at a lower dose; both keep the continuation in the
+source language. This is the paper's own Figure-88 corroboration logic — a
+non-J-Lens method finding the same result — run causally under a null.
+
+---
+
 ## Cross-references
 
 - Method context and claim boundaries: `POSITION_NOTE.md`
 - Dated narrative: `TIMELINE.md`
 - Hash bindings for every artifact above: `PRIORITY_MANIFEST.md` /
   `priority_manifest.json` (PM-01..42 + Update (2): PM-43..67 + Update (3):
-  PM-68..86)
+  PM-68..86 + Update (4): PM-87)

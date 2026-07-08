@@ -1,0 +1,35 @@
+$ python reproduce.py
+
+# Verbatim stdout from running reproduce.py against the public Qwen/Qwen3-1.7B
+# weights on CPU (torch 2.12, transformers 5.13). Run it yourself and compare.
+# (The one-word "torch_dtype is deprecated" notice is a transformers warning,
+# not part of the result.)
+
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading Qwen/Qwen3-1.7B ...
+Device: cpu
+
+Building French-minus-Spanish concept vectors (mean activation difference)...
+
+================= RESULT =================
+injection: layers [8, 9, 10, 11], all positions, alpha=0.2 x natural concept norm
+baseline report log-odds (French - Spanish): -8.527 nats
+  real vector   -> report shift +2.434 nats;  continuation: Spanish
+  shuffled null -> report shift +0.044 nats;  continuation: Spanish
+  ratio real/null: 55.0x
+  real continuation:  'el tren se detuvo. el conductor se acercó a la vía y se sentó. el tren'
+  null continuation:  'el tren se detuvo. el tren se detuvo. el tren se detuvo. el tren se de'
+
+PASS: the real shift is 55x the norm-matched null -> the report move
+is concept-specific, not generic breakage. The continuation staying Spanish
+while the report moves toward French is the report-vs-continuation dissociation.
+==========================================
+
+# Note on numbers: this clean-room script's absolute nats (+2.4 real / +0.04
+# null) are NOT the same as our internal runtime's figures (+11 / +1); different
+# injection scale and implementation. What reproduces is the QUALITATIVE claim:
+# the real concept vector moves the verbal report many times more than a
+# norm-matched shuffle of the same vector, while the continuation stays in the
+# source language. Adjusting ALPHA upward increases the report shift but
+# eventually flips the continuation too (joint steering) -- a dose-response with
+# a real boundary, which is the honest shape of the effect.
